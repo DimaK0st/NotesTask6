@@ -1,2 +1,1 @@
-# NotesTask6
- 
+# Templates Project
