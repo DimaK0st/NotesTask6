@@ -8,9 +8,15 @@
     <link href="/style/mainPageStyle.css" rel="stylesheet">
     <script src="/script/mainPageScripts.js"></script>
 
-    <title>Test</title>
+    <title>Task 6</title>
 </head>
 <body>
+
+    <div>
+
+        Задание 6 - Блокнот
+
+    </div>
 
 </body>
 </html>
