@@ -1,5 +1,5 @@
-# Auto detect text files and perform LF normalization
 * text=auto
-/task/*
-.idea/
-.idea
+*.css linguist-vendored
+*.scss linguist-vendored
+*.js linguist-vendored
+CHANGELOG.md export-ignore
