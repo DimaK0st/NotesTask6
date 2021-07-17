@@ -2,7 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b7b5751-0897-48f6-a057-59ec7cfcaa81" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/css/authorization.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/css/registration.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/authorization.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/registration.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/registration.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/public/.htaccess" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/footer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/headerAndFooter.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/headerAndFooter.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,10 +154,16 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../RemoteTestingSite" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/css" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Prog\Server\OpenServer\domains\NotesTask6\resources\css" />
+      <recent name="C:\Prog\Server\OpenServer\domains\NotesTask6\resources\js" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -165,6 +182,8 @@
       <workItem from="1625917021709" duration="4200000" />
       <workItem from="1626380790514" duration="1331000" />
       <workItem from="1626434957681" duration="32000" />
+      <workItem from="1626516976180" duration="1934000" />
+      <workItem from="1626540414086" duration="5366000" />
     </task>
     <servers />
   </component>

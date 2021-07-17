@@ -15,3 +15,9 @@ mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css', [
         //
     ]);
+mix.styles([
+    'resources/css/app.css',
+    'resources/css/authorization.css',
+    'resources/css/registration.css',
+    'resources/css/footer.css'
+], 'public/css/all.css');
