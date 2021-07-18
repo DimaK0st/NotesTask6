@@ -5,22 +5,22 @@
     <meta name="description" content="">
 
     <title>Album example for Bootstrap</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/header.css') }}">
 <body>
 
 <header>
-    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-        <h5 class="my-0 mr-md-auto font-weight-normal">Company name</h5>
-        <nav class="my-2 my-md-0 mr-md-3">
-            <a class="p-2 text-dark" href="#">Features</a>
-            <a class="p-2 text-dark" href="#">Enterprise</a>
-            <a class="p-2 text-dark" href="#">Support</a>
-            <a class="p-2 text-dark" href="#">Pricing</a>
+    <div class="wrapper">
+        <a href="#" class="text-logo">Notes</a>
+        <a href="#" class="hamburger"></a>
+        <nav>
+            <a href="#" class="login_btn">Login</a>
         </nav>
-        <a class="btn btn-outline-primary" href="#">Sign up</a>
     </div>
-</header>
+</header><!--  end header section  -->
 
 <main role="main">
 
@@ -39,14 +39,13 @@
 <footer class="py-3">
     <div class="copy-bottom-txt text-center py-3">
         <p>
-            © 2020 Name Site. All Rights Reserved | Design by <a href="#" target="_blank">StockShablonov</a>
+            © 2021 Notes Site. Developer by <a href="#" target="_blank">Dima Kost</a>
         </p>
     </div>
     <div class="social-icons mt-lg-3 mt-2 text-center">
         <ul>
-            <li><a href="#"><span class="fa fa-facebook"></span></a></li>
-            <li><a href="#"><span class="fa fa-twitter"></span></a></li>
-            <li><a href="#"><span class="fa fa-rss"></span></a></li>
+            <li><a href="#"><span class="fa fa-github"></span></a></li>
+            <li><a href="#"><span class="fa fa-telegram"></span></a></li>
         </ul>
     </div>
 </footer>
