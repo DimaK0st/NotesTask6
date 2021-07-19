@@ -1,8 +1,37 @@
 /* Form Style */
+html, body {
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+}
+
+main {
+    height: calc(100% - (100px + 130px));
+    background: #d0d0d0;display		: table;
+}
+
+.container{
+    margin: auto;display		: table-cell;
+    vertical-align	: middle;
+}
+
+@media (min-width: 767px) {
+.col-md-6{
+    flex: auto;
+    max-width: 100%;
+}}
+@media (min-width: 992px){
+    .col-md-6 {
+        max-width: 50%;
+    }}
+
+
 .form-horizontal {
-    background: #fff;
+    background: #dddddd;
     padding-bottom: 40px;
     border-radius: 15px;
+    border-color: white;
+    border-width: 2px;
     text-align: center;
 }
 
@@ -11,7 +40,6 @@
     font-size: 35px;
     font-weight: 700;
     padding: 35px 0;
-    border-bottom: 1px solid #f0f0f0;
     margin-bottom: 30px;
 }
 

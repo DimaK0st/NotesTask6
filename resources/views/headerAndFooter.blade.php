@@ -1,5 +1,5 @@
 
-<html lang="ru"><head>
+<html lang="ru" ><head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -10,14 +10,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
     <link rel="stylesheet" href="{{ asset('css/header.css') }}">
-<body>
+<body >
 
 <header>
     <div class="wrapper">
         <a href="#" class="text-logo">Notes</a>
         <a href="#" class="hamburger"></a>
         <nav>
-            <a href="#" class="login_btn">Login</a>
+            <a href="/authorization" class="login_btn">Login</a>
         </nav>
     </div>
 </header><!--  end header section  -->
@@ -26,13 +26,9 @@
 
                 @yield('main_first_block')
 
-    <div class="album py-5 bg-light">
-        <div class="container">
 
 
                 @yield('main_content')
-        </div>
-    </div>
 
 </main>
 

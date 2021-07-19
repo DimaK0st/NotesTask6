@@ -14,10 +14,16 @@ use App\Http\Controllers\MainController;
 */
 
 Route::get('/', [MainController::class,'home']);
-
 Route::get('/about', [MainController::class,'blog']);
+
+
 Route::get('/register', [MainController::class,'register']);
+Route::post('/post/register', [UserController::class,'registerPost']);
+
+
+
 Route::get('/authorization', [MainController::class,'authorization']);
+Route::post('/post/authorization', [UserController::class,'authorizationPost']);
 
 
 Route::get('/user/{id}/{name}', function ($id, $name) {

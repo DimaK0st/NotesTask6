@@ -1,9 +1,15 @@
-footer{background: #181817;} /*фон подвала */
-.social-icons ul{
+footer {
+    background: #181817;
+    height: 130px;
+}
+
+/*фон подвала */
+.social-icons ul {
     list-style: none;
     display: flex;
     justify-content: center;
 }
+
 .social-icons ul li a span {
     color: #000;
     width: 34px;
@@ -22,19 +28,27 @@ footer{background: #181817;} /*фон подвала */
     transition: 0.5s all;
     -moz-transition: 0.5s all;
 }
-.social-icons ul li a span:hover{color:orange;}
-.copy-bottom-txt p{font-size:18px;
-    color:#fff;
+
+.social-icons ul li a span:hover {
+    color: orange;
 }
-.social-icons ul li:nth-child(2){
+
+.copy-bottom-txt p {
+    font-size: 18px;
+    color: #fff;
+}
+
+.social-icons ul li:nth-child(2) {
     margin: 0 10px;
 }
+
 .copy-bottom-txt p a {
     font-size: 18px;
-    color:grey;
+    color: grey;
     letter-spacing: 1px;
     transition: .4s;
 }
+
 .copy-bottom-txt p a:hover {
     color: orange;
     text-decoration: underline;

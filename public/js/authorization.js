@@ -30,7 +30,7 @@ document.forms.formsLogin.onsubmit= function (e){
         }
     }
 
-    objXMLHttpRequest.open('POST', '/post/auth');
+    objXMLHttpRequest.open('POST', '/post/authorization');
     objXMLHttpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     objXMLHttpRequest.send("&login="+login+ "&password="+password);
 }
