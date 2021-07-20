@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateUserModelsTable extends Migration
 {
+    public $timestamps = false;
     /**
      * Run the migrations.
      *

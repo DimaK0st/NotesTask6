@@ -10,6 +10,7 @@
 
             <div class="col-md-offset-3 col-md-6">
                 <form name="formsLogin" class="form-horizontal">
+                    {{ csrf_field() }}
                     <span class="heading">АВТОРИЗАЦИЯ</span>
                     <div class="form-group">
                         <input class="form-control" id="inputLogin" name="inputLogin" placeholder="Login/Email">

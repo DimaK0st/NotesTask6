@@ -11,6 +11,7 @@
 
             <div class="col-md-offset-3 col-md-6">
                 <form name="formsRegister" class="form-horizontal">
+                    {{ csrf_field() }}
                     <span class="heading">Регистрация</span>
                     <div class="form-group">
                         <input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="E-mail">

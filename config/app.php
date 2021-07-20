@@ -1,7 +1,7 @@
 <?php
 
 return [
-
+    'Input' => Illuminate\Support\Facades\Input::class,
     /*
     |--------------------------------------------------------------------------
     | Application Name
