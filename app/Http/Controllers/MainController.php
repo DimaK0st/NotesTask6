@@ -14,9 +14,9 @@ class MainController extends Controller
 
     //
 
-    public function about()
+    public function addNote()
     {
-        return view('about');
+        return view('addNote');
 
     }
 

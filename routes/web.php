@@ -15,7 +15,7 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', [MainController::class,'home']);
-Route::get('/about', [MainController::class,'blog']);
+Route::get('/addNote', [MainController::class,'addNote']);
 
 
 Route::get('/register', [MainController::class,'register']);

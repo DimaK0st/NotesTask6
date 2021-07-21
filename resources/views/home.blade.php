@@ -5,7 +5,7 @@
         <div class="container">
             <h1 class="jumbotron-heading">Сайт для хранения закладок</h1>
             <p>
-                <a href="#" class="btn btn-primary my-2">Добавить закладку</a>
+                <a href="/addNote" class="btn btn-primary my-2">Добавить закладку</a>
             </p>
         </div>
     </section>

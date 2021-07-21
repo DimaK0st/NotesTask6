@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b7b5751-0897-48f6-a057-59ec7cfcaa81" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/css/addNote.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/addNote.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/registration.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/registration.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/authorization.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/authorization.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/registration.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/headerAndFooter.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/headerAndFooter.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,13 +150,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../RemoteTestingSite" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/css" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Prog\Server\OpenServer\domains\NotesTask6\public\css" />
+      <recent name="C:\Prog\Server\OpenServer\domains\NotesTask6\resources\views" />
       <recent name="C:\Prog\Server\OpenServer\domains\NotesTask6\resources\css" />
       <recent name="C:\Prog\Server\OpenServer\domains\NotesTask6\resources\js" />
     </key>
@@ -186,7 +189,7 @@
       <workItem from="1626785321292" duration="4280000" />
       <workItem from="1626791509755" duration="1403000" />
       <workItem from="1626806731641" duration="384000" />
-      <workItem from="1626862893027" duration="5063000" />
+      <workItem from="1626862893027" duration="7384000" />
     </task>
     <servers />
   </component>

@@ -15,7 +15,7 @@
 
 <header>
     <div class="wrapper">
-        <a href="#" class="text-logo">Notes</a>
+        <a href="/" class="text-logo">Notes</a>
         <a href="#" class="hamburger"></a>
         @if (isset($_COOKIE['access']) && $_COOKIE['access'] =="1")
             <nav>
