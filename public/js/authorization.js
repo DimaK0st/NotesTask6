@@ -12,12 +12,16 @@ document.forms.formsLogin.onsubmit= function (e){
         if (objXMLHttpRequest.readyState === 4) {
             if (objXMLHttpRequest.status === 200) {
                 let res= objXMLHttpRequest.responseText;
+                res=JSON.parse(res)
                 alert(res)
-                switch (parseInt(res)) {
+                switch (parseInt(res.access)) {
                     case 1:
                         servResponse.style.color = "blue";
-                        servResponse.textContent = "Успешный вход";
-                        window.location.href = '/successAuth'
+                        servResponse.textContent = "Успешный вход преподавателя";
+                        document.cookie = "access=1"
+                        document.cookie = "id="+res.id
+                        document.cookie = "userName="+res.userName
+                        window.location.href = '/'
                         break;
                     case 2:
                         servResponse.style.color = "red";

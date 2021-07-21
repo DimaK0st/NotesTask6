@@ -26,7 +26,7 @@ document.forms.formsRegister.onsubmit = function (e) {
                         case 1:
                             servResponse.style.color = "blue";
                             servResponse.textContent = "Данные добавлены";
-                            window.location.href = '/auth'
+                            window.location.href = '/authorization'
                             break;
                         case 2:
                             servResponse.style.color = "red";
