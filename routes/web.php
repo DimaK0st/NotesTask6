@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ImageController;
+use App\Http\Controllers\NoteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\UserController;
@@ -16,6 +18,7 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', [MainController::class,'home']);
 Route::get('/addNote', [MainController::class,'addNote']);
+Route::post('/post/addNote', [NoteController::class,'addNote']);
 
 
 Route::get('/register', [MainController::class,'register']);

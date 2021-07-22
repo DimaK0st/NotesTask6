@@ -2,13 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\NoteModel;
+use App\Models\UserModel;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
-    public function home()
+    public function home(Request $request)
     {
-        return view('home');
+
+        $allNotes = NoteModel::where('idUser', '=', $_COOKIE['id'])->orderBy('idNotes', 'desc')->get();
+
+echo $allNotes;
+
+
+
+        return view('home',['allNotes'=>$allNotes]);
 
     }
 

@@ -9,6 +9,16 @@ header .logo {
     float: left;
 }
 
+#block {
+    height: 100px;
+    overflow: hidden;
+    font-size: 14px;
+}
+
+#block:hover {
+    height: auto;
+    cursor: pointer;
+}
 
 header nav {
     float: right;

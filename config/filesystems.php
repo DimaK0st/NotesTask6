@@ -29,7 +29,7 @@ return [
     */
 
     'disks' => [
-
+        'root' => public_path(),
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),
@@ -69,5 +69,5 @@ return [
     'links' => [
         public_path('storage') => storage_path('app/public'),
     ],
-
+    'root' => public_path()
 ];
