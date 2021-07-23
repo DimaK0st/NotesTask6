@@ -21,11 +21,18 @@ class ImageController extends Controller
         }
 
 
-        $pathScan = public_path('../public/storage/'.$path);
-        $files = scandir($pathScan);
-        echo var_dump($files);
+
         return view('home',['path'=> $path."/".$filename]);
     }
 
+
+
+    public function getSavedImages($path){
+
+        $pathScan = public_path('../public/storage/'.$path);
+        $files = scandir($pathScan);
+        echo var_dump($files);
+
+    }
 
 }

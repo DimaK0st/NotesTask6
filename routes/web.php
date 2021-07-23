@@ -29,6 +29,8 @@ Route::post('/post/register', [UserController::class,'registerPost']);
 Route::get('/authorization', [MainController::class,'authorization']);
 Route::post('/post/authorization', [UserController::class,'authorizationPost']);
 
+Route::get('/getNote/{id}', [NoteController::class,'getOneNote']);
+
 
 Route::get('/user/{id}/{name}', function ($id, $name) {
     return view('about');

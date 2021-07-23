@@ -26,4 +26,36 @@ class NoteController extends Controller
     }
 
 
+    public function getNotes(){
+
+
+
+        return app('App\Http\Controllers\ImageController')->getSavedImages();
+
+    }
+
+    public function getOneNote($id)
+    {
+
+//        return app('App\Http\Controllers\ImageController')->getSavedImages();
+
+
+
+        $oneNotes = NoteModel::where('idNotes', '=', $id)->orderBy('idNotes', 'desc')->first();
+
+        echo $oneNotes;
+
+        $pathScan = public_path('../public/storage/'.$oneNotes['idUser'].'/'.$oneNotes['idNotes']);
+        $files = scandir($pathScan);
+        echo "<br>";
+        $allImage=array();
+        for($i=2;$i<count($files);$i++){
+        array_push($allImage, asset('storage/'.$oneNotes['idUser'].'/'.$oneNotes['idNotes'].'/'.$files[$i]));
+        }
+        var_dump($allImage);
+        return view('getNote',["oneNotes"=>$oneNotes, "allImage"=>$allImage]);
+
+    }
+
+
 }

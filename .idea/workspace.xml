@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b7b5751-0897-48f6-a057-59ec7cfcaa81" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/js/addNote.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/getNote.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ImageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ImageController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/filesystems.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/filesystems.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/addNote.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/addNote.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/NoteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/NoteController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/addNote.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/addNote.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -151,16 +150,16 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Prog\Server\OpenServer\domains\NotesTask6\resources\views" />
       <recent name="C:\Prog\Server\OpenServer\domains\NotesTask6\public\js" />
       <recent name="C:\Prog\Server\OpenServer\domains\NotesTask6\public\css" />
-      <recent name="C:\Prog\Server\OpenServer\domains\NotesTask6\resources\views" />
       <recent name="C:\Prog\Server\OpenServer\domains\NotesTask6\resources\css" />
       <recent name="C:\Prog\Server\OpenServer\domains\NotesTask6\resources\js" />
     </key>
@@ -196,6 +195,8 @@
       <workItem from="1626946311320" duration="1816000" />
       <workItem from="1626957681169" duration="4966000" />
       <workItem from="1626973976126" duration="7629000" />
+      <workItem from="1627035737480" duration="864000" />
+      <workItem from="1627036754221" duration="11913000" />
     </task>
     <servers />
   </component>

@@ -13,11 +13,16 @@ class MainController extends Controller
 
         $allNotes = NoteModel::where('idUser', '=', $_COOKIE['id'])->orderBy('idNotes', 'desc')->get();
 
-echo $allNotes;
+        echo count($allNotes);
+        for ($i = 0; $i < count($allNotes); $i++) {
 
+            $path = $_COOKIE['id'] . "/" . (string)$allNotes[$i]['idNotes'];
+            $pathScan = public_path('../public/storage/' . $allNotes[$i]['idUser'] . "/" . $allNotes[$i]['idNotes']);
+            $files = scandir($pathScan);
+            $allNotes[$i]['path'] = asset('storage/' . $path . "/" . $files[2]);
 
-
-        return view('home',['allNotes'=>$allNotes]);
+        }
+        return view('home', ['allNotes' => $allNotes]);
 
     }
 
