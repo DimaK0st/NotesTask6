@@ -19,6 +19,8 @@ use App\Http\Controllers\UserController;
 Route::get('/', [MainController::class,'home']);
 Route::get('/addNote', [MainController::class,'addNote']);
 Route::post('/post/addNote', [NoteController::class,'addNote']);
+Route::get('/editNote/{id}', [NoteController::class,'editNote']);
+Route::post('/post/editNote', [NoteController::class,'editPostNote']);
 
 
 Route::get('/register', [MainController::class,'register']);

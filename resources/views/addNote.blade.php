@@ -15,25 +15,26 @@
                     <span class="heading">Добавление новой заметки</span>
                     <div class="form-group">
                         <input type="text" class="form-control" id="inputNameNote" name="inputNameNote"
-                               placeholder="Название заметки">
+                               placeholder="Название заметки" required>
                     </div>
                     <div class="form-group">
                         <textarea class="form-text-notes" id="inputTextNote" name="inputTextNote"
-                                  placeholder="Содержимое заметки"></textarea>
+                                  placeholder="Содержимое заметки" required></textarea>
                     </div>
                     <div style="margin-bottom: 10px">
                         <span id="response" style="width: 100px; height: 100px;"></span></div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-default">Добавить</button>
-                    </div>
-
                     <div id="parentId">
                         <input required type="file" class="form-control pictures" name="image_1" id="myFile" placeholder="Photo"
                                accept="image/jpeg,image/png,image/gif">
                     </div>
 
+                    <br>
                     <a class="add" onclick="return addField()" href="#">Добавить ещё картинку</a>
 
+<br>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-default">Добавить</button>
+                    </div>
 
 
                 </form>

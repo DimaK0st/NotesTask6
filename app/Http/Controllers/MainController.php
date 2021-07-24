@@ -34,6 +34,7 @@ class MainController extends Controller
 
     }
 
+
     public function authorization()
     {
         return view('authorization');

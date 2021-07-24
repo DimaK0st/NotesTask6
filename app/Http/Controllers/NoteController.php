@@ -58,4 +58,17 @@ class NoteController extends Controller
     }
 
 
+
+    public function editNote($id)
+    {
+
+        $oneNotes = NoteModel::where('idNotes', '=', $id)->first();
+
+        echo var_dump($oneNotes);
+
+
+
+        return view('editNote', ["oneNotes"=>$oneNotes]);
+    }
+
 }

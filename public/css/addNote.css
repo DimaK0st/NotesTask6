@@ -2,6 +2,7 @@ html, body {
     height: 100%;
     display: flex;
     flex-flow: column;
+    background: #d0d0d0;
 }
 
 main {

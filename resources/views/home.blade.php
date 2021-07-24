@@ -42,7 +42,7 @@
                                     <div class="btn-group">
                                         <a type="button" href="getNote/{{$oneNote['idNotes']}}" class="btn btn-sm btn-outline-secondary">
                                             View </a>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                        <a type="button" href="/editNote/{{$oneNote['idNotes']}}" class="btn btn-sm btn-outline-secondary">Edit</a>
                                     </div>
                                     <small class="text-muted">9 mins</small>
                                 </div>
