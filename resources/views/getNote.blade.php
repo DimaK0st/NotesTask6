@@ -16,9 +16,7 @@
                     <span class="heading">{{$oneNotes['nameNotes']}}</span>
 
                     <div class="form-group">
-                        <p class="form-text-notes" style="height: auto" id="inputTextNote" name="inputTextNote">{{$oneNotes['textNotes']}}
-                            asdasdasdasdasdasdasdasda sdas das das d sdas das das d sdas das das d sdas das das d sdas das das d sdas das das d sdas das das d sdas das das d sdas das das d sdas das das d sdas das das d sdas das das d sdas das das d sdas das das d sdas das das d sdas das das d sdas das das d sdas das das d sdas das das d sdas das das d sdas das das d sdas das das d sdas das das d sdas das das d sdas das das d sdas das das d sdas das das d sdas das das d sdas das das d sdas das das d sdas das das d sdas das das d sdas das das d sdas das das d sdas das das d sdas das das d sdas das das dasd asdasdasdasdasdasdasdasdasdas
-                            dasdasdasdasdas dasdasdasdasdasdasdasd asdasdasdasdasd</p>
+                        <p class="form-text-notes" style="height: auto" id="inputTextNote" name="inputTextNote">{{$oneNotes['textNotes']}}</p>
                     </div>
                     <div style="margin-bottom: 10px">
                         <span id="response" style="width: 100px; height: 100px;"></span></div>

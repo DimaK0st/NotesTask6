@@ -18,7 +18,9 @@ class MainController extends Controller
 
             $path = $_COOKIE['id'] . "/" . (string)$allNotes[$i]['idNotes'];
             $pathScan = public_path('../public/storage/' . $allNotes[$i]['idUser'] . "/" . $allNotes[$i]['idNotes']);
+            $pathScan;
             $files = scandir($pathScan);
+            $files;
             $allNotes[$i]['path'] = asset('storage/' . $path . "/" . $files[2]);
 
         }

@@ -18,7 +18,6 @@ class CreateNotes extends Migration
             $table->string('idUser');
             $table->string('nameNotes');
             $table->string('textNotes');
-            $table->string('idPicturesAlbum');
 
         });
     }

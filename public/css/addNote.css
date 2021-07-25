@@ -6,10 +6,13 @@ html, body {
 }
 
 main {
-    height: calc(100% - (100px + 130px));
-    background: #d0d0d0;display		: table;
+    height: calc(100% - (100px + 160px));
+    background: #d0d0d0;
+    display		: table;
 }
-
+.row {
+    margin: 0;
+}
 .container{
     margin: auto;display		: table-cell;
     vertical-align	: middle;
@@ -27,6 +30,7 @@ main {
 
 
 .form-horizontal {
+    margin-bottom: 40px;
     background: #fff;
     padding-bottom: 40px;
     border-radius: 15px;

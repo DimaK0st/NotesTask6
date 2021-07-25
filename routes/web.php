@@ -25,9 +25,6 @@ Route::post('/post/editNote', [NoteController::class,'editPostNote']);
 
 Route::get('/register', [MainController::class,'register']);
 Route::post('/post/register', [UserController::class,'registerPost']);
-
-
-
 Route::get('/authorization', [MainController::class,'authorization']);
 Route::post('/post/authorization', [UserController::class,'authorizationPost']);
 
