@@ -8,15 +8,13 @@
     <link rel="stylesheet" href="../css/addNote.css">
     <div class="contain">
         <div class="row">
-
             <div class="col-md-offset-3 col-md-6">
-                <form name="formsRegister" class="form-horizontal" enctype="multipart/form-data" action='/post/addNote'
-                      method="post">
+                <div name="formsRegister" class="form-horizontal" >
                     {{ csrf_field() }}
                     <span class="heading">{{$oneNotes['nameNotes']}}</span>
 
                     <div class="form-group">
-                        <p class="form-text-notes" style="height: auto" id="inputTextNote" name="inputTextNote">{{$oneNotes['textNotes']}}</p>
+                        <div class="form-text-notes" style="text-align: start" id="inputTextNote" name="inputTextNote">{!!$oneNotes['textNotes']!!}</div>
                     </div>
                     <div style="margin-bottom: 10px">
                         <span id="response" style="width: 100px; height: 100px;"></span></div>
@@ -36,7 +34,7 @@
                             </span>
                         @endforeach
                     </figure>
-                </form>
+                </div>
             </div>
 
         </div><!-- /.row -->

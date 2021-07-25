@@ -158,3 +158,22 @@ header nav .login_btn:hover {
     color: orange;
     text-decoration: none;
 }
+
+
+.figure-delete{
+
+    transition: all .1s linear;
+    -webkit-transition: all .1s linear;
+    -moz-transition: all .1s linear;
+    -o-transition: all .1s linear;
+}
+
+.figure-delete:hover{
+
+    border: 10px solid #ff0000;
+    background: #f60000;
+}
+
+
+
+

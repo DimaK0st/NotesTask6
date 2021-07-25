@@ -72,17 +72,29 @@ class NoteController extends Controller
     public function editPostNote(Request $request)
     {
 
-
+        $regexp = "/http:\/\/\w+\//";
         $idUser=$_COOKIE['id'];
+        $path=$request->tempNoteDelete;
+        echo $path;
+        $path = explode(",", $path);
 
-
+        echo "<br>После регулярки";
+        foreach ($path as $onePath){
+            if($onePath!=""){
+            echo "<br>___________________";
+                $result = str_replace("http://notestask6", "", $onePath);
+                echo $result;
+                unlink(public_path($result));
+            }
+        }
+        app('App\Http\Controllers\ImageController')->addNote($request, $idUser."/".$request->idNotes);
 
 
         $note = NoteModel::where('idNotes', $request->idNotes)->update(['nameNotes'=>$request->inputNameNote,'textNotes'=>$request->inputTextNote]);
-        echo $note;
 
 
-        return redirect('/getNote/'.$request->idNotes);
+        return "";
+//        return redirect('/getNote/'.$request->idNotes);
         }
 
 }

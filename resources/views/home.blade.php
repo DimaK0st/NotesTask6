@@ -33,7 +33,7 @@
                                  src="{{$oneNote['path']}}"
                                  data-holder-rendered="true">
                             <div class="card-body">
-                                <span>Тема: {{$oneNote['nameNotes']}} </span>
+                                <a type="button" href="getNote/{{$oneNote['idNotes']}}" >Тема: {{$oneNote['nameNotes']}} </a>
                                 <br><br>
                                 <div id="block">
                                     <p class="card-text">Содержимое: {{$oneNote['textNotes']}}</p>
