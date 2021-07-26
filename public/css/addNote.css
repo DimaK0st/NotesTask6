@@ -6,7 +6,7 @@ html, body {
 }
 
 main {
-    height: calc(100% - (100px + 160px));
+    /*height: calc(100% - (100px + 160px));*/
     background: #d0d0d0;
     display		: table;
 }
@@ -83,7 +83,8 @@ main {
 
 .form-text-notes{
     width: 100%;
-    height: 100px;
+    min-height: 100px;
+    height: auto;
 }
 
 .form-horizontal .fa-question-circle {

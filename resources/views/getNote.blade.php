@@ -20,6 +20,7 @@
                         <span id="response" style="width: 100px; height: 100px;"></span></div>
 
                     <figure>
+
                         @foreach($allImage as $image)
                             <span style="width:25%;">
                                 <!-- thumbnail image wrapped in a link -->

@@ -55,7 +55,7 @@
                         </div>
 
                     <br>
-                    <button class="add  btn-warning" style="margin-bottom: 10px" onclick="return addField()" href="#">Добавить ещё картинку</button>
+                    <button class="add  btn-warning" style="margin-bottom: 10px" onclick="return addField()">Добавить ещё картинку</button>
 
                     <br>
                     <div class="form-group">

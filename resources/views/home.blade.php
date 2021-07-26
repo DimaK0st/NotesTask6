@@ -4,9 +4,19 @@
     <section class="jumbotron text-center">
         <div class="container">
             <h1 class="jumbotron-heading">Сайт для хранения закладок</h1>
-            <p>
-                <a href="/addNote" class="btn btn-primary my-2">Добавить закладку</a>
-            </p>
+            @if(isset($firstLogin))
+                <p>
+                    <a href="/register" class="btn btn-primary my-2">Зарегистрировать аккаунт</a>
+                </p>
+            @else
+                <p>
+                    <a href="/addNote" class="btn btn-primary my-2">Добавить закладку</a>
+                </p>
+                <p>
+                    <a href="/getCsv" class="btn btn-primary my-2">Экспортировать закладки</a>
+                    <a href="/importCsv" class="btn btn-primary my-2">Импортировать закладки</a>
+                </p>
+            @endif
         </div>
     </section>
 @endsection
@@ -14,9 +24,6 @@
 
 @section('main_content')
 
-    @isset($path)
-        <img src="{{asset('storage/'. (string)$path)}}" alt="">
-    @endisset
 
 
     <div class="album py-5 bg-light">
@@ -33,16 +40,25 @@
                                  src="{{$oneNote['path']}}"
                                  data-holder-rendered="true">
                             <div class="card-body">
-                                <a type="button" href="getNote/{{$oneNote['idNotes']}}" >Тема: {{$oneNote['nameNotes']}} </a>
+                                <a type="button"
+                                   href="getNote/{{$oneNote['idNotes']}}">Тема: {{$oneNote['nameNotes']}} </a>
                                 <br><br>
                                 <div id="block">
-                                    <p class="card-text">Содержимое: {{$oneNote['textNotes']}}</p>
+                                    <p class="card-text">Содержимое: {!!$oneNote['textNotes']!!}...</p>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <a type="button" href="getNote/{{$oneNote['idNotes']}}" class="btn btn-sm btn-outline-secondary">
-                                            View </a>
-                                        <a type="button" href="/editNote/{{$oneNote['idNotes']}}" class="btn btn-sm btn-outline-secondary">Edit</a>
+                                        <form name="formsDeleteNote" class="form-horizontal" action='/deleteNote'
+                                              method="post">
+                                            {{ csrf_field() }}
+                                            <input type="hidden" id="deleteNote" name="deleteNote" value="{{$oneNote['idNotes']}}">
+                                            <a type="button" href="getNote/{{$oneNote['idNotes']}}"
+                                               class="btn btn-sm btn-outline-secondary">View</a>
+                                            <a type="button" href="/editNote/{{$oneNote['idNotes']}}"
+                                               class="btn btn-sm btn-outline-secondary">Edit</a>
+                                            <button type="submit" class="btn btn-sm btn-outline-secondary">
+                                                Delete</button>
+                                        </form>
                                     </div>
                                     <small class="text-muted">9 mins</small>
                                 </div>

@@ -68,7 +68,9 @@ a:hover {
 
 
 
-
+.card{
+    height: 500px;
+}
 
 header {
     width: 100%;
@@ -82,14 +84,11 @@ header .logo {
 }
 
 #block {
-    height: 100px;
+    min-height: 100px;
+    height: 130px;
+    margin-bottom: 10px;
     overflow: hidden;
     font-size: 14px;
-}
-
-#block:hover {
-    height: auto;
-    cursor: pointer;
 }
 
 header nav {
