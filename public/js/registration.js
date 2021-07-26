@@ -7,7 +7,7 @@ document.forms.formsRegister.onsubmit = function (e) {
     let login = document.forms.formsRegister.inputLogin.value;
     let password = document.forms.formsRegister.inputPassword.value;
     let rePassword = document.forms.formsRegister.inputRePassword.value;
-    let _token=document.forms.formsRegister._token.value;
+    let _token = document.forms.formsRegister._token.value;
 
     if (password !== rePassword) {
         alert("Passwords not coincidence");
@@ -44,6 +44,6 @@ document.forms.formsRegister.onsubmit = function (e) {
 
         objXMLHttpRequest.open('POST', '/post/register');
         objXMLHttpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        objXMLHttpRequest.send("&email=" + email + "&login=" + login + "&password=" + password+ "&_token="+_token);
+        objXMLHttpRequest.send("&email=" + email + "&login=" + login + "&password=" + password + "&_token=" + _token);
     }
 }

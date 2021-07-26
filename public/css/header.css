@@ -4,7 +4,6 @@ figure {
     height: auto;
 }
 
-
 p {
     margin: 1.5em 0;
     color: #aaa;
@@ -22,53 +21,40 @@ a:hover {
     color: #bbb;
 }
 
-.italic { font-style: italic; }
-.small { font-size: 0.8em; }
+.italic {
+    font-style: italic;
+}
 
-/** LIGHTBOX MARKUP **/
+.small {
+    font-size: 0.8em;
+}
 
 .lightbox {
-    /* Default to hidden */
     display: none;
-
-    /* Overlay entire screen */
     position: fixed;
     z-index: 999;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-
-    /* A bit of padding around image */
     padding: 1em;
-
-    /* Translucent background */
     background: rgba(0, 0, 0, 0.8);
 }
 
-/* Unhide the lightbox when it's the target */
 .lightbox:target {
     display: block;
 }
 
 .lightbox span {
-    /* Full width and height */
     display: block;
     width: 100%;
     height: 100%;
-
-    /* Size and position background image */
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
 }
 
-
-
-
-
-
-.card{
+.card {
     height: 500px;
 }
 
@@ -83,7 +69,13 @@ header .logo {
     float: left;
 }
 
+.themeNote{
+    max-height:50px;
+    overflow: hidden;
+}
+
 #block {
+    padding-top: 5px;
     min-height: 100px;
     height: 130px;
     margin-bottom: 10px;
@@ -107,8 +99,7 @@ header nav ul li {
     margin-left: 50px;
 }
 
-header nav ul li a,
-header nav .login_btn {
+header nav ul li a, header nav .login_btn {
     text-decoration: none;
     color: #fff;
     font-family: "lato-regular", Helvetica, Arial, sans-serif;
@@ -135,7 +126,7 @@ header nav .login_btn:hover {
     color: #1c3655;
 }
 
-.jumbotron{
+.jumbotron {
     margin-bottom: 0;
 }
 
@@ -158,8 +149,7 @@ header nav .login_btn:hover {
     text-decoration: none;
 }
 
-
-.figure-delete{
+.figure-delete {
 
     transition: all .1s linear;
     -webkit-transition: all .1s linear;
@@ -167,7 +157,7 @@ header nav .login_btn:hover {
     -o-transition: all .1s linear;
 }
 
-.figure-delete:hover{
+.figure-delete:hover {
 
     border: 10px solid #ff0000;
     background: #f60000;

@@ -9,19 +9,14 @@ class ImageController extends Controller
 {
     public function addNote(Request $request, $path)
     {
-        // загрузка файла
         for ($i = 1; $i < 6; $i++) {
             if ($request->isMethod('post') && $request->file('image_' . $i)) {
                 $file = $request->file('image_' . $i);
 
                 $filename = $file->getClientOriginalName(); // image.jpg
-                Storage::putFileAs('public/'.$path, $file, $filename);
-
+                Storage::putFileAs('public/' . $path, $file, $filename);
             }
         }
-//        echo $path."/".$filename;
-
-
         return redirect("/");
     }
 
@@ -31,25 +26,16 @@ class ImageController extends Controller
         for ($i = 1; $i < 6; $i++) {
             if ($request->isMethod('post') && $request->file('image_' . $i)) {
                 $file = $request->file('image_' . $i);
-
                 $filename = $file->getClientOriginalName(); // image.jpg
-                Storage::putFileAs('public/'.$path, $file, $filename);
-
+                Storage::putFileAs('public/' . $path, $file, $filename);
             }
         }
-//        echo $path."/".$filename;
-
-
         return redirect("/");
     }
 
-
-    public function getSavedImages($path){
-
-        $pathScan = public_path('../public/storage/'.$path);
+    public function getSavedImages($path)
+    {
+        $pathScan = public_path('../public/storage/' . $path);
         $files = scandir($pathScan);
-        echo var_dump($files);
-
     }
-
 }

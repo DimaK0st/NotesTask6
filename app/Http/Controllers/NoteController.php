@@ -185,15 +185,6 @@ class NoteController extends Controller
         }
         return $data;
     }
-    function readCSV($csvFile)
-    {
-        $file_handle = fopen($csvFile, 'r');
-        while (!feof($file_handle)) {
-            $line_of_text[] = fgetcsv($file_handle, 1024, "|");
-        }
-        fclose($file_handle);
-        return $line_of_text;
-    } // Set path to CSV file $csvFile = 'test.csv'; $csv = readCSV($csvFile); echo '<pre>'; print_r($csv); echo '</pre>';
 
     public function importCsvFile(Request $request)
     {
@@ -205,26 +196,12 @@ class NoteController extends Controller
             Storage::putFileAs('public/' . $_COOKIE['id'] . "/import", $file, $filename);
 
         }
-//        $row = 0;
-//            if (($handle = fopen(public_path()."/storage/".$_COOKIE['id']."/import/".$filename, "r")) !== FALSE) {
-//                while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-//                    if()
-//                    $num = count($data);
-//                    echo "<p> $num полей в строке $row: <br /></p>";
-//                    $row++;
-//                    for ($c=0; $c < $num; $c++) {
-//                        echo $data[$c] . "<br />";
-//                    }
-//                }
-//                fclose($handle);
-//            }
 
 
-
-        $data = $this->kama_parse_csv_file( public_path()."/storage/".$_COOKIE['id']."/import/".$filename );
-        $row=0;
-        foreach ($data as $oneData){
-            if($row!=0) {
+        $data = $this->kama_parse_csv_file(public_path() . "/storage/" . $_COOKIE['id'] . "/import/" . $filename);
+        $row = 0;
+        foreach ($data as $oneData) {
+            if ($row != 0) {
 
                 $note = new NoteModel();
                 $note->idUser = $_COOKIE['id'];
@@ -232,45 +209,18 @@ class NoteController extends Controller
                 $note->textNotes = $oneData[3];
                 $note->save();
 
-            }
-            else{
-                $row.=1;
+            } else {
+                $row .= 1;
             }
 
         }
 
-
-
-
-//
-//        $data = $this->readCSV(public_path() . "/storage/" . $_COOKIE['id'] . "/import/" . $filename);
-//        $row = 0;
-//        var_dump($data);
-//        foreach ($data as $oneData) {
-//            echo "============PIZDA-----------------------<br><br><br><br><br><br><br>";
-//            var_dump($oneData);
-//            if ($row != 0) {
-//
-//                $note = new NoteModel();
-//                $note->idUser = $_COOKIE['id'];
-//                $note->nameNotes = $oneData[2];
-//                $note->textNotes = $oneData[3];
-//                $note->save();
-//
-//            } else {
-//                $row .= 1;
-//            }
-//
-//        }
-
-
-                return redirect("/");
+        return redirect("/");
     }
 
 
     public function deletePostNote(Response $response)
     {
-
         NoteModel::where('idNotes', '=', $_POST['deleteNote'])->delete();
         File::deleteDirectory(public_path() . "/storage/" . $_COOKIE['id'] . "/" . $_POST['deleteNote']);
 

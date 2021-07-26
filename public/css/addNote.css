@@ -6,28 +6,32 @@ html, body {
 }
 
 main {
-    /*height: calc(100% - (100px + 160px));*/
     background: #d0d0d0;
-    display		: table;
+    display: table;
 }
+
 .row {
     margin: 0;
 }
-.container{
-    margin: auto;display		: table-cell;
-    vertical-align	: middle;
+
+.container {
+    margin: auto;
+    display: table-cell;
+    vertical-align: middle;
 }
 
 @media (min-width: 767px) {
-    .col-md-6{
+    .col-md-6 {
         flex: auto;
         max-width: 100%;
-    }}
-@media (min-width: 992px){
+    }
+}
+
+@media (min-width: 992px) {
     .col-md-6 {
         max-width: 50%;
-    }}
-
+    }
+}
 
 .form-horizontal {
     margin-bottom: 40px;
@@ -39,7 +43,7 @@ main {
 
 .form-horizontal .heading {
     display: block;
-    font-size: 35px;
+    font-size: 25px;
     font-weight: 700;
     padding: 35px 0;
     border-bottom: 1px solid #f0f0f0;
@@ -52,7 +56,7 @@ main {
     position: relative;
 }
 
-.form-horizontal .form-control ,.form-text-notes  {
+.form-horizontal .form-control, .form-text-notes {
     background: #f0f0f0;
     border: none;
     border-radius: 20px;
@@ -81,7 +85,7 @@ main {
     color: #00b4ef;
 }
 
-.form-text-notes{
+.form-text-notes {
     width: 100%;
     min-height: 100px;
     height: auto;
@@ -168,7 +172,6 @@ main {
 
     background: #35be49;
 }
-
 
 .btn, .btn2 {
     width: 100%;
