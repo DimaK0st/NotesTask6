@@ -24,7 +24,7 @@
                     {{ csrf_field() }}
                     <input type="hidden" id="tempNoteDelete" name="tempNoteDelete" value="">
                     <input type="hidden" id="idNotes" name="idNotes" value="{{$oneNotes['idNotes']}}">
-                    <span class="heading">Добавление новой заметки</span>
+                    <span class="heading">Редактирование заметки</span>
                     <div class="form-group">
                         <input type="text" class="form-control" id="inputNameNote" name="inputNameNote"
                                placeholder="Название заметки" required value="{{$oneNotes['nameNotes']}}">
@@ -59,7 +59,7 @@
 
                     <br>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-default">Добавить</button>
+                        <button type="submit" class="btn btn-default">Сохранить</button>
                     </div>
 
 

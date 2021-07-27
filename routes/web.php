@@ -42,9 +42,4 @@ Route::post('/post/authorization', [UserController::class,'authorizationPost']);
 Route::get('/user/{id}/{name}', function ($id, $name) {
     return view('about');
 });
-/home/f0539305/domains/f0539305.xsph.ru/public_html/storage/app/public/0/161/
-
-/home/f0539305/domains/f0539305.xsph.ru/public_html/storage/app/public/0/161/
-/home/f0539305/domains/f0539305.xsph.ru/public_html/public/../storage/app/public/0/161
-/home/f0539305/domains/f0539305.xsph.ru/public_html/public/storage/app/public/0/162
 
