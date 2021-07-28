@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     public static $timestamps = false;
-
     public function authorizationPost(Request $request)
     {
         $userName = UserModel::where('email', '=', $request->login)->orWhere('userName', '=', $request->login)->first();
@@ -23,8 +22,6 @@ class UserController extends Controller
             } else {
                 return "2";
             }
-
-
         }
     }
 

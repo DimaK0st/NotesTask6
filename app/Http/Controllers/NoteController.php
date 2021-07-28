@@ -15,17 +15,13 @@ class NoteController extends Controller
 
     public function addNote(Request $request)
     {
-
         $idUser = $_COOKIE['id'];
-
-
         $user = new NoteModel();
         $user->idUser = $idUser;
         $user->nameNotes = $request->inputNameNote;
         $user->textNotes = $request->inputTextNote;
         $user->save();
         $idTheme = $user->idNote;
-
         return app('App\Http\Controllers\ImageController')->addNote($request, $idUser . "/" . $idTheme);
 
     }
@@ -33,20 +29,13 @@ class NoteController extends Controller
 
     public function getNotes()
     {
-
-
         return app('App\Http\Controllers\ImageController')->getSavedImages();
 
     }
 
     public function getOneNote($id)
     {
-
-//        return app('App\Http\Controllers\ImageController')->getSavedImages();
-
-
         $oneNotes = NoteModel::where('idNotes', '=', $id)->orderBy('idNotes', 'desc')->first();
-
         $allImage = $this->getAllImageNote($oneNotes['idUser'], $oneNotes['idNotes']);
         return view('getNote', ["oneNotes" => $oneNotes, "allImage" => $allImage]);
 
@@ -62,14 +51,12 @@ class NoteController extends Controller
                 array_push($allImage, asset('storage/' . $idUser . '/' . $idNotes . '/' . $files[$i]));
             }
         } else array_push($allImage, $allNotes[0]['path'] = "data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22208%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20208%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_17aab92a0d9%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A11pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_17aab92a0d9%22%3E%3Crect%20width%3D%22208%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2266.9453125%22%20y%3D%22117.3%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E");
-
         return $allImage;
     }
 
 
     public function editNote($id)
     {
-
         $oneNotes = NoteModel::where('idNotes', '=', $id)->first();
         echo "<!DOCTYPE html>";
         $allImage = $this->getAllImageNote($oneNotes['idUser'], $oneNotes['idNotes']);
@@ -79,12 +66,10 @@ class NoteController extends Controller
 
     public function editPostNote(Request $request)
     {
-
         $regexp = "/http:\/\/\w+\//";
         $idUser = $_COOKIE['id'];
         $path = $request->tempNoteDelete;
         $path = explode(",", $path);
-
         foreach ($path as $onePath) {
             if ($onePath != "") {
                 $result = str_replace("http://notestask6", "", $onePath);
@@ -94,18 +79,12 @@ class NoteController extends Controller
             }
         }
         app('App\Http\Controllers\ImageController')->addNote($request, $idUser . "/" . $request->idNotes);
-
-
         $note = NoteModel::where('idNotes', $request->idNotes)->update(['nameNotes' => $request->inputNameNote, 'textNotes' => $request->inputTextNote]);
-
-
         return redirect('/getNote/' . $request->idNotes);
     }
 
-
     public function getCsvFile()
     {
-
         $headers = array(
             'Content-Type' => 'application/vnd.ms-excel; charset=utf-8',
             'Cache-Control' => 'must-revalidate, post-check=0, pre-check=0',
@@ -125,7 +104,6 @@ class NoteController extends Controller
         ], '|');
 
         $Notes = NoteModel::where('idUser', '=', $_COOKIE['id'])->get();
-//            DB::table("notes")->where('idUser','=', $_COOKIE['id'] )->chunk(5, function ($data) use ($handle) {
         foreach ($Notes as $row) {
             // Add a new row with data
             fputcsv($handle, [
@@ -135,18 +113,13 @@ class NoteController extends Controller
                 $row->textNotes
             ], '|');
         }
-//            });
-
         fclose($handle);
-
-
         return Response::download(public_path() . '/' . $filename, "download.csv", $headers);
     }
 
 
     function kama_parse_csv_file($file_path, $file_encodings = ['cp1251', 'UTF-8'], $col_delimiter = '', $row_delimiter = "")
     {
-
         if (!file_exists($file_path))
             return false;
         $cont = trim(file_get_contents($file_path));
@@ -188,16 +161,11 @@ class NoteController extends Controller
 
     public function importCsvFile(Request $request)
     {
-
-
         if ($request->isMethod('post') && $request->file('importCsvFile')) {
             $file = $request->file('importCsvFile');
             $filename = $file->getClientOriginalName(); // image.jpg
             Storage::putFileAs('public/' . $_COOKIE['id'] . "/import", $file, $filename);
-
         }
-
-
         $data = $this->kama_parse_csv_file(public_path() . "/storage/" . $_COOKIE['id'] . "/import/" . $filename);
         $row = 0;
         foreach ($data as $oneData) {
@@ -208,13 +176,10 @@ class NoteController extends Controller
                 $note->nameNotes = $oneData[2];
                 $note->textNotes = $oneData[3];
                 $note->save();
-
             } else {
                 $row .= 1;
             }
-
         }
-
         return redirect("/");
     }
 
@@ -223,7 +188,6 @@ class NoteController extends Controller
     {
         NoteModel::where('idNotes', '=', $_POST['deleteNote'])->delete();
         File::deleteDirectory(public_path() . "/storage/" . $_COOKIE['id'] . "/" . $_POST['deleteNote']);
-
         return redirect("/");
     }
 

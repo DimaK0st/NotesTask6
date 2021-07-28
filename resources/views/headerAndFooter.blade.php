@@ -23,14 +23,12 @@
                 <a href="#" class="login_btn">Здравствуй: {{$_COOKIE['userName']}}</a>
             </nav>
         @else
-
             <nav>
                 <a href="/authorization" class="login_btn">Вход</a>
             </nav>
-
         @endif
     </div>
-</header><!--  end header section  -->
+</header>
 
 <main role="main">
 
@@ -55,9 +53,7 @@
         </ul>
     </div>
 </footer>
-<!-- CDN подключение иконок fontawesome -->
 <script src="https://use.fontawesome.com/df966d76e1.js"></script>
-
 </body>
 <script>
     function deleteAllCookies() {

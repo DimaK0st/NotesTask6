@@ -1,8 +1,6 @@
 @extends('headerAndFooter')
 
 @section('main_content')
-
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="../css/addNote.css">
     <style>
@@ -10,7 +8,10 @@
             margin: 0;
         }
 
-        img {border: 1px solid black;}
+        img {
+            border: 1px solid black;
+        }
+
         main {
             height: auto;
         }
@@ -35,27 +36,28 @@
                     </div>
                     <div style="margin-bottom: 10px">
                         <span id="response" style="width: 100px; height: 100px;"></span></div>
-                        <figure>
-                            @foreach($allImage as $image)
+                    <figure>
+                        @foreach($allImage as $image)
 
-                                @if($loop->index==0)
-                                    <input type="hidden" id="tempNoteAdd" name="tempNoteAdd" value="{{$loop->count}}">
-                                    @endif
-                                <span>
+                            @if($loop->index==0)
+                                <input type="hidden" id="tempNoteAdd" name="tempNoteAdd" value="{{$loop->count}}">
+                            @endif
+                            <span>
                                 <!-- thumbnail image wrapped in a link -->
                                 <a href="#img{{$loop->iteration}}">
-                                    <img class="figure-delete" src="{{$image}}" width="25%" style=" margin: 5px" onclick="return deleteField(this,'{{$image}}')">
+                                    <img class="figure-delete" src="{{$image}}" width="25%" style=" margin: 5px"
+                                         onclick="return deleteField(this,'{{$image}}')">
                                 </a>
-
                                 </span>
-                            @endforeach
-                        </figure>
-                        <div id="parentId">
+                        @endforeach
+                    </figure>
+                    <div id="parentId">
 
-                        </div>
+                    </div>
 
                     <br>
-                    <button class="add  btn-warning" style="margin-bottom: 10px" onclick="return addField()">Добавить ещё картинку</button>
+                    <button class="add  btn-warning" style="margin-bottom: 10px" onclick="return addField()">Добавить ещё картинку
+                    </button>
 
                     <br>
                     <div class="form-group">

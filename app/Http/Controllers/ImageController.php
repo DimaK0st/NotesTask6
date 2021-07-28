@@ -12,7 +12,6 @@ class ImageController extends Controller
         for ($i = 1; $i < 6; $i++) {
             if ($request->isMethod('post') && $request->file('image_' . $i)) {
                 $file = $request->file('image_' . $i);
-
                 $filename = $file->getClientOriginalName(); // image.jpg
                 Storage::putFileAs('public/' . $path, $file, $filename);
             }
