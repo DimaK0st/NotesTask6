@@ -14,25 +14,6 @@ main {
     margin: 0;
 }
 
-.container {
-    margin: auto;
-    display: table-cell;
-    vertical-align: middle;
-}
-
-@media (min-width: 767px) {
-    .col-md-6 {
-        flex: auto;
-        max-width: 100%;
-    }
-}
-
-@media (min-width: 992px) {
-    .col-md-6 {
-        max-width: 50%;
-    }
-}
-
 .form-horizontal {
     margin-bottom: 40px;
     background: #fff;

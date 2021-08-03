@@ -3,18 +3,18 @@
 @section('main_first_block')
     <section class="jumbotron text-center">
         <div class="container">
-            <h1 class="jumbotron-heading">Сайт для хранения закладок</h1>
+            <h1 class="jumbotron-heading">Сайт для хранения заметок</h1>
             @if(isset($firstLogin))
                 <p>
                     <a href="/register" class="btn btn-primary my-2">Зарегистрировать аккаунт</a>
                 </p>
             @else
                 <p>
-                    <a href="/addNote" class="btn btn-primary my-2">Добавить закладку</a>
+                    <a href="/addNote" class="btn btn-primary my-2">Добавить заметку</a>
                 </p>
                 <p>
-                    <a href="/getCsv" class="btn btn-primary my-2">Экспортировать закладки</a>
-                    <a href="/importCsv" class="btn btn-primary my-2">Импортировать закладки</a>
+                    <a href="/getCsv" class="btn btn-primary my-2">Экспортировать заметки</a>
+                    <a href="/importCsv" class="btn btn-primary my-2">Импортировать заметки</a>
                 </p>
             @endif
         </div>

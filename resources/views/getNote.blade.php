@@ -2,9 +2,6 @@
 
 @section('main_content')
 
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="../css/addNote.css">
     <div class="contain">
         <div class="row">
@@ -25,7 +22,7 @@
                             <span style="width:25%;">
                                 <!-- thumbnail image wrapped in a link -->
                                 <a href="#img{{$loop->iteration}}">
-                                    <img src="{{$image}}" width="25%" style="border: 1px solid black; margin: 5px">
+                                    <img src="{{$image}}" width="25%" height="auto" style="border: 1px solid black; margin: 5px">
                                 </a>
 
                                 <!-- lightbox container hidden with CSS -->

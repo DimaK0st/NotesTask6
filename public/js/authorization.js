@@ -12,22 +12,18 @@ document.forms.formsLogin.onsubmit = function (e) {
         if (objXMLHttpRequest.readyState === 4) {
             if (objXMLHttpRequest.status === 200) {
                 let res = objXMLHttpRequest.responseText;
-                res = JSON.parse(res)
                 alert(res)
-                switch (parseInt(res.access)) {
+                switch (parseInt(res)) {
                     case 1:
                         servResponse.style.color = "blue";
-                        servResponse.textContent = "Успешный вход преподавателя";
-                        document.cookie = "access=1"
-                        document.cookie = "id=" + res.id
-                        document.cookie = "userName=" + res.userName
+                        servResponse.textContent = "Успешный вход";
                         window.location.href = '/'
                         break;
                     case 2:
-                        servResponse.style.color = "red";
-                        servResponse.textContent = "Вы ввели не верные данные/ пользователь не существует";
+                        alert("Вы ввели не верный пароль");
                         break;
                     case 3:
+                        alert("Пользователь не существует");
                         break;
                 }
             } else {

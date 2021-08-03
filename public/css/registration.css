@@ -16,6 +16,11 @@ main {
     vertical-align: middle;
 }
 
+.btn-auth{
+    cursor: pointer;
+    text-decoration: none;
+}
+
 @media (min-width: 767px) {
     .col-md-6 {
         flex: auto;

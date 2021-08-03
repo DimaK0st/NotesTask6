@@ -1,21 +1,10 @@
 @extends('headerAndFooter')
 
 @section('main_content')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="../css/addNote.css">
-    <style>
-        .row {
-            margin: 0;
-        }
+    <link rel="stylesheet" href="../css/editNote.css">
 
-        img {
-            border: 1px solid black;
-        }
 
-        main {
-            height: auto;
-        }
-    </style>
     <div class="contain">
         <div class="row">
 
@@ -34,8 +23,8 @@
                         <textarea class="form-text-notes inputTextNote" id="inputTextNote" name="inputTextNote"
                                   placeholder="Содержимое заметки" required>{{$oneNotes['textNotes']}}</textarea>
                     </div>
-                    <div style="margin-bottom: 10px">
-                        <span id="response" style="width: 100px; height: 100px;"></span></div>
+                    <div class="response-block" >
+                        <span id="response" ></span></div>
                     <figure>
                         @foreach($allImage as $image)
 
@@ -45,7 +34,7 @@
                             <span>
                                 <!-- thumbnail image wrapped in a link -->
                                 <a href="#img{{$loop->iteration}}">
-                                    <img class="figure-delete" src="{{$image}}" width="25%" style=" margin: 5px"
+                                    <img class="figure-delete" src="{{$image}}"
                                          onclick="return deleteField(this,'{{$image}}')">
                                 </a>
                                 </span>
@@ -56,7 +45,7 @@
                     </div>
 
                     <br>
-                    <button class="add  btn-warning" style="margin-bottom: 10px" onclick="return addField()">Добавить ещё картинку
+                    <button class="add  btn-warning" onclick="return addField()">Добавить ещё картинку
                     </button>
 
                     <br>

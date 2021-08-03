@@ -2,14 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b7b5751-0897-48f6-a057-59ec7cfcaa81" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/css/editNote.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ImageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ImageController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/NoteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/NoteController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/addNote.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/addNote.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/authorization.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/authorization.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/registration.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/registration.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/authorization.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/authorization.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/about.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/addNote.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/addNote.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/authorization.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/authorization.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/editNote.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/editNote.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/getNote.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/getNote.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/headerAndFooter.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/headerAndFooter.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/postCsv.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/postCsv.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/registration.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/registration.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,6 +41,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -157,7 +170,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -216,7 +229,9 @@
       <workItem from="1627238515805" duration="6356000" />
       <workItem from="1627294720903" duration="28213000" />
       <workItem from="1627410032270" duration="922000" />
-      <workItem from="1627501651555" duration="212000" />
+      <workItem from="1627501651555" duration="226000" />
+      <workItem from="1627995716057" duration="3789000" />
+      <workItem from="1628014380692" duration="7268000" />
     </task>
     <servers />
   </component>

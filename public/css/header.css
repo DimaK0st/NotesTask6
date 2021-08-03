@@ -1,8 +1,3 @@
-figure {
-    display: flex;
-    flex-direction: row;
-    height: auto;
-}
 
 p {
     margin: 1.5em 0;
@@ -163,6 +158,34 @@ header nav .login_btn:hover {
     background: #f60000;
 }
 
+
+.container {
+    margin: auto;
+    /*display: table-cell;*/
+    vertical-align: middle;
+}
+
+.response-block {
+    margin-bottom: 10px
+}
+
+#response {
+    width: 100px;
+    height: 100px;
+}
+
+@media (min-width: 767px) {
+    .col-md-6 {
+        flex: auto;
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-md-6 {
+        max-width: 50%;
+    }
+}
 
 
 

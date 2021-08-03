@@ -5,10 +5,10 @@
     <meta name="description" content="">
 
     <title>Album example for Bootstrap</title>
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <!-- CSS only --><!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+
     <link rel="stylesheet" href="{{ asset('css/header.css') }}">
     <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
 <body>
@@ -17,10 +17,10 @@
     <div class="wrapper">
         <a href="/" class="text-logo">Notes</a>
         <a href="#" class="hamburger"></a>
-        @if (isset($_COOKIE['access']) && $_COOKIE['access'] =="1")
+        @if (session('access') =="1")
             <nav>
                 <a href="#" onclick="deleteAllCookies()" class="login_btn">Выйти</a>
-                <a href="#" class="login_btn">Здравствуй: {{$_COOKIE['userName']}}</a>
+                <a href="#" class="login_btn">Здравствуй: {{session('userName')}}</a>
             </nav>
         @else
             <nav>
@@ -35,10 +35,11 @@
     @yield('main_first_block')
 
 
-
     @yield('main_content')
 
 </main>
+
+</body>
 
 <footer class="py-3">
     <div class="copy-bottom-txt text-center py-3">
@@ -52,9 +53,8 @@
             <li><a href="#"><span class="fa fa-telegram"></span></a></li>
         </ul>
     </div>
+    <script src="https://use.fontawesome.com/df966d76e1.js"></script>
 </footer>
-<script src="https://use.fontawesome.com/df966d76e1.js"></script>
-</body>
 <script>
     function deleteAllCookies() {
         var cookies = document.cookie.split(";");

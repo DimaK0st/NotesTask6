@@ -16,25 +16,15 @@ main {
     vertical-align: middle;
 }
 
-@media (min-width: 767px) {
-    .col-md-6 {
-        flex: auto;
-        max-width: 100%;
-    }
-}
-
-@media (min-width: 992px) {
-    .col-md-6 {
-        max-width: 50%;
-    }
+.btn-reg{
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .form-horizontal {
-    background: #dddddd;
+    background: #fff;
     padding-bottom: 40px;
     border-radius: 15px;
-    border-color: white;
-    border-width: 2px;
     text-align: center;
 }
 

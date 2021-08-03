@@ -15,7 +15,7 @@ class NoteController extends Controller
 
     public function addNote(Request $request)
     {
-        $idUser = $_COOKIE['id'];
+        $idUser = session('id');
         $user = new NoteModel();
         $user->idUser = $idUser;
         $user->nameNotes = $request->inputNameNote;
@@ -67,7 +67,7 @@ class NoteController extends Controller
     public function editPostNote(Request $request)
     {
         $regexp = "/http:\/\/\w+\//";
-        $idUser = $_COOKIE['id'];
+        $idUser = session('id');
         $path = $request->tempNoteDelete;
         $path = explode(",", $path);
         foreach ($path as $onePath) {
@@ -103,7 +103,7 @@ class NoteController extends Controller
             "textNotes"
         ], '|');
 
-        $Notes = NoteModel::where('idUser', '=', $_COOKIE['id'])->get();
+        $Notes = NoteModel::where('idUser', '=', session('id'))->get();
         foreach ($Notes as $row) {
             // Add a new row with data
             fputcsv($handle, [
@@ -164,15 +164,15 @@ class NoteController extends Controller
         if ($request->isMethod('post') && $request->file('importCsvFile')) {
             $file = $request->file('importCsvFile');
             $filename = $file->getClientOriginalName(); // image.jpg
-            Storage::putFileAs('public/' . $_COOKIE['id'] . "/import", $file, $filename);
+            Storage::putFileAs('public/' . session('id') . "/import", $file, $filename);
         }
-        $data = $this->kama_parse_csv_file(public_path() . "/storage/" . $_COOKIE['id'] . "/import/" . $filename);
+        $data = $this->kama_parse_csv_file(public_path() . "/storage/" . session('id') . "/import/" . $filename);
         $row = 0;
         foreach ($data as $oneData) {
             if ($row != 0) {
 
                 $note = new NoteModel();
-                $note->idUser = $_COOKIE['id'];
+                $note->idUser = session('id');
                 $note->nameNotes = $oneData[2];
                 $note->textNotes = $oneData[3];
                 $note->save();
@@ -187,7 +187,7 @@ class NoteController extends Controller
     public function deletePostNote(Response $response)
     {
         NoteModel::where('idNotes', '=', $_POST['deleteNote'])->delete();
-        File::deleteDirectory(public_path() . "/storage/" . $_COOKIE['id'] . "/" . $_POST['deleteNote']);
+        File::deleteDirectory(public_path() . "/storage/" . session('id') . "/" . $_POST['deleteNote']);
         return redirect("/");
     }
 

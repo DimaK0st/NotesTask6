@@ -13,15 +13,16 @@ class UserController extends Controller
         $userName = UserModel::where('email', '=', $request->login)->orWhere('userName', '=', $request->login)->first();
         if ($userName !== null) {
             if ($request->password == $userName['password']) {
-                $data = array(
-                    'id' => $userName['id'],
+                session(['id' => $userName['id'],
                     'userName' => $userName['userName'],
-                    'access' => 1
+                    'access' => 1]
                 );
-                return json_encode($data);
+                return "1";
             } else {
                 return "2";
             }
+        }else {
+            return "3";
         }
     }
 
@@ -41,5 +42,12 @@ class UserController extends Controller
             return "1";
         }
 
+    }
+
+    public function show(Request $request, $id)
+    {
+        $value = $request->session()->get('key');
+
+        //
     }
 }

@@ -21,7 +21,7 @@ class ImageController extends Controller
 
     public function editNote(Request $request, $path)
     {
-        // загрузка файла
+
         for ($i = 1; $i < 6; $i++) {
             if ($request->isMethod('post') && $request->file('image_' . $i)) {
                 $file = $request->file('image_' . $i);

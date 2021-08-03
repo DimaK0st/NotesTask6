@@ -1,0 +1,21 @@
+
+img{
+
+    width: 25%;
+    margin: 5px;
+}
+.row {
+    margin: 0;
+}
+
+img {
+    border: 1px solid black;
+}
+
+main {
+    height: auto;
+}
+
+.btn-warning{
+    margin-bottom: 10px;
+}
