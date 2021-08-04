@@ -36,7 +36,7 @@
                         <div class="card mb-4 shadow-sm">
                             <img class="card-img-top"
                                  data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
-                                 alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;"
+                                 alt="Thumbnail [100%x225]"
                                  src="{{$oneNote['path']}}"
                                  data-holder-rendered="true">
                             <div class="card-body">

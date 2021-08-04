@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserModelsTable extends Migration
+class CreateUserTable extends Migration
 {
     public $timestamps = false;
     /**
@@ -14,7 +14,7 @@ class CreateUserModelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_models', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('userName');
             $table->string('email');

@@ -5,13 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class UserModel extends Model
+class Note extends Model
 {
-
+    use HasFactory;
     public $timestamps = false;
-    public function checkUserData($login, $password)
-    {
 
+    public function user(){
+        return $this->belongsTo('App/User');
     }
-
 }

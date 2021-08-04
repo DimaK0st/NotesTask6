@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\NoteModel;
-use App\Models\UserModel;
+use App\Models\Note;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -12,16 +12,16 @@ class MainController extends Controller
     public function home(Request $request)
     {
         if (!is_null(session('id'))) {
-            $allNotes = NoteModel::selectRaw('`idNotes`, `idUser`, `nameNotes` , LEFT (textNotes, 200) as textNotes ')
+            $allNotes = Note::selectRaw('`id`, `idUser`, `nameNotes` , LEFT (textNotes, 200) as textNotes ')
                 ->where('idUser', '=', session('id'))
-                ->orderBy('idNotes', 'desc')->get();
+                ->orderBy('id', 'desc')->get();
         } else {
-            $allNotes = NoteModel::where('idUser', '=', "-1")->orderBy('idNotes', 'desc')->get();
+            $allNotes = Note::where('idUser', '=', "-1")->orderBy('id', 'desc')->get();
         }
 var_dump(count($allNotes));
         for ($i = 0; $i < count($allNotes); $i++) {
-            $path = session('id') . "/" . (string)$allNotes[$i]['idNotes'];
-            $pathScan = public_path('../public/storage/' . $allNotes[$i]['idUser'] . "/" . $allNotes[$i]['idNotes']);
+            $path = session('id') . "/" . (string)$allNotes[$i]['id'];
+            $pathScan = public_path('../public/storage/' . $allNotes[$i]['idUser'] . "/" . $allNotes[$i]['id']);
             if (is_readable($pathScan)) {
                 $files = scandir($pathScan);
                 $files;

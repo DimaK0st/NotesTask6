@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\UserModel;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -10,7 +10,7 @@ class UserController extends Controller
     public static $timestamps = false;
     public function authorizationPost(Request $request)
     {
-        $userName = UserModel::where('email', '=', $request->login)->orWhere('userName', '=', $request->login)->first();
+        $userName = User::where('email', '=', $request->login)->orWhere('userName', '=', $request->login)->first();
         if ($userName !== null) {
             if ($request->password == $userName['password']) {
                 session(['id' => $userName['id'],
@@ -28,12 +28,12 @@ class UserController extends Controller
 
     public function registerPost(Request $req)
     {
-        $userEmail = UserModel::where('email', '=', $req->login)->count();
-        $userName = UserModel::where('userName', '=', $req->login)->count();
+        $userEmail = User::where('email', '=', $req->login)->count();
+        $userName = User::where('userName', '=', $req->login)->count();
         if ($userEmail > 0 or $userName > 0) {
             return "2";
         } else {
-            $user = new UserModel();
+            $user = new User();
             $user->userName = $req->login;
             $user->email = $req->email;
             $user->password = $req->password;

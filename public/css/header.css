@@ -64,8 +64,8 @@ header .logo {
     float: left;
 }
 
-.themeNote{
-    max-height:50px;
+.themeNote {
+    max-height: 50px;
     overflow: hidden;
 }
 
@@ -158,6 +158,11 @@ header nav .login_btn:hover {
     background: #f60000;
 }
 
+.card-img-top {
+    height: 225px;
+    width: 100%;
+    display: block;
+}
 
 .container {
     margin: auto;

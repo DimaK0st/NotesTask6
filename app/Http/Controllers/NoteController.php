@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\NoteModel;
-use App\Models\UserModel;
+use App\Models\Note;
+use App\Models\User;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -16,12 +16,12 @@ class NoteController extends Controller
     public function addNote(Request $request)
     {
         $idUser = session('id');
-        $user = new NoteModel();
+        $user = new Note();
         $user->idUser = $idUser;
         $user->nameNotes = $request->inputNameNote;
         $user->textNotes = $request->inputTextNote;
         $user->save();
-        $idTheme = $user->idNote;
+        $idTheme = $user->idNotes;
         return app('App\Http\Controllers\ImageController')->addNote($request, $idUser . "/" . $idTheme);
 
     }
@@ -35,7 +35,7 @@ class NoteController extends Controller
 
     public function getOneNote($id)
     {
-        $oneNotes = NoteModel::where('idNotes', '=', $id)->orderBy('idNotes', 'desc')->first();
+        $oneNotes = Note::where('idNotes', '=', $id)->orderBy('idNotes', 'desc')->first();
         $allImage = $this->getAllImageNote($oneNotes['idUser'], $oneNotes['idNotes']);
         return view('getNote', ["oneNotes" => $oneNotes, "allImage" => $allImage]);
 
@@ -57,7 +57,7 @@ class NoteController extends Controller
 
     public function editNote($id)
     {
-        $oneNotes = NoteModel::where('idNotes', '=', $id)->first();
+        $oneNotes = Note::where('idNotes', '=', $id)->first();
         echo "<!DOCTYPE html>";
         $allImage = $this->getAllImageNote($oneNotes['idUser'], $oneNotes['idNotes']);
         return view('editNote', ["oneNotes" => $oneNotes, "allImage" => $allImage]);
@@ -79,7 +79,7 @@ class NoteController extends Controller
             }
         }
         app('App\Http\Controllers\ImageController')->addNote($request, $idUser . "/" . $request->idNotes);
-        $note = NoteModel::where('idNotes', $request->idNotes)->update(['nameNotes' => $request->inputNameNote, 'textNotes' => $request->inputTextNote]);
+        $note = Note::where('idNotes', $request->idNotes)->update(['nameNotes' => $request->inputNameNote, 'textNotes' => $request->inputTextNote]);
         return redirect('/getNote/' . $request->idNotes);
     }
 
@@ -103,7 +103,7 @@ class NoteController extends Controller
             "textNotes"
         ], '|');
 
-        $Notes = NoteModel::where('idUser', '=', session('id'))->get();
+        $Notes = Note::where('idUser', '=', session('id'))->get();
         foreach ($Notes as $row) {
             // Add a new row with data
             fputcsv($handle, [
@@ -171,7 +171,7 @@ class NoteController extends Controller
         foreach ($data as $oneData) {
             if ($row != 0) {
 
-                $note = new NoteModel();
+                $note = new Note();
                 $note->idUser = session('id');
                 $note->nameNotes = $oneData[2];
                 $note->textNotes = $oneData[3];
@@ -186,7 +186,7 @@ class NoteController extends Controller
 
     public function deletePostNote(Response $response)
     {
-        NoteModel::where('idNotes', '=', $_POST['deleteNote'])->delete();
+        Note::where('idNotes', '=', $_POST['deleteNote'])->delete();
         File::deleteDirectory(public_path() . "/storage/" . session('id') . "/" . $_POST['deleteNote']);
         return redirect("/");
     }

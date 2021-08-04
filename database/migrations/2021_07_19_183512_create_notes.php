@@ -19,6 +19,10 @@ class CreateNotes extends Migration
             $table->string('nameNotes');
             $table->string('textNotes');
 
+            $table->foreign('idUser')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
         });
     }
 
