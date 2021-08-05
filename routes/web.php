@@ -16,7 +16,8 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', [MainController::class,'home']);
+Route::get('/', [MainController::class,'home'])->name('home');;
+Route::get('/post/logout', [MainController::class,'logout']);
 Route::get('/getNote/{id}', [NoteController::class,'getOneNote']);
 
 Route::get('/addNote', [MainController::class,'addNote']);

@@ -1,6 +1,6 @@
-let countOfFields = document.getElementById('tempNoteAdd').value; // Текущее число полей
-let curFieldNameId = 1; // Уникальное значение для атрибута name
-let maxFieldLimit = 5; // Максимальное число возможных полей
+let countOfFields = document.getElementById('tempNoteAdd').value;
+let curFieldNameId = 1;
+let maxFieldLimit = 5;
 tinymce.init({
     selector: '.inputTextNote',
     plugins: 'a11ychecker advcode casechange export formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
@@ -10,15 +10,29 @@ tinymce.init({
     tinycomments_author: 'Author name',
 });
 
+btnAddField.onclick = function() {
+    addField();
+};
+
+var list=document.getElementsByClassName("figure-delete");
+let length=list.length
+for (var i=0; i<length; i++)
+{
+    let content=list[i]
+    let path=document.getElementById("id-figure-delete-"+(i+1)).getAttribute('src')
+    list[i].addEventListener('click', function(){
+        deleteField(content,path);
+    }, false);
+
+}
+
+
 function deleteField(a, path) {
+    alert(a)
     if (path != 0) {
         document.getElementById('tempNoteDelete').value += path + ",";
     }
-    console.log("A");
-    console.log(a);
-    let contDiv = a.parentNode;
-    console.log(contDiv);
-    contDiv = contDiv.parentNode;
+    contDiv = a.parentNode;
     console.log(contDiv);
     contDiv.parentNode.removeChild(contDiv);
     countOfFields--;

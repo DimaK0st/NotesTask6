@@ -1,7 +1,10 @@
-let countOfFields = 1; // Текущее число полей
-let curFieldNameId = 1; // Уникальное значение для атрибута name
-let maxFieldLimit = 5; // Максимальное число возможных полей
+let countOfFields = 1;
+let curFieldNameId = 1;
+let maxFieldLimit = 5;
 
+btnAddField.onclick = function() {
+    addField();
+};
 
 function deleteField(a) {
     let contDiv = a.parentNode;

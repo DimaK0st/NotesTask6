@@ -18,10 +18,13 @@
         <a href="/" class="text-logo">Notes</a>
         <a href="#" class="hamburger"></a>
         @if (session('access') =="1")
+            <form action='/post/logout' method="get">
             <nav>
-                <a href="#" onclick="deleteAllCookies()" class="login_btn">Выйти</a>
+
+                <button type="submit" id="deleteCookie" class="login_btn">Выйти</button>
                 <a href="#" class="login_btn">Здравствуй: {{session('userName')}}</a>
             </nav>
+            </form>
         @else
             <nav>
                 <a href="/authorization" class="login_btn">Вход</a>
@@ -55,20 +58,6 @@
     </div>
     <script src="https://use.fontawesome.com/df966d76e1.js"></script>
 </footer>
-<script>
-    function deleteAllCookies() {
-        var cookies = document.cookie.split(";");
 
-        for (var i = 0; i < cookies.length; i++) {
-            var cookie = cookies[i];
-            var eqPos = cookie.indexOf("=");
-            var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-            // if(name)
-            if (name != ' XSRF-TOKEN') {
-                document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
-            }
-        }
-        location.href = location.href;
-    }
-</script>
+    <script src="../js/deleteCookie.js"></script>
 </html>

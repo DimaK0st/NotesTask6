@@ -29,7 +29,7 @@
                     </div>
 
                     <br>
-                    <a class="add" onclick="return addField()" href="#">Добавить ещё картинку</a>
+                    <a class="add" id="btnAddField" href="#">Добавить ещё картинку</a>
 
                     <br>
                     <div class="form-group">

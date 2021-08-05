@@ -7,7 +7,7 @@ html, body {
 
 main {
     background: #d0d0d0;
-    display: table;
+    /*display: table;*/
 }
 
 .row {

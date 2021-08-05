@@ -12,16 +12,15 @@ class MainController extends Controller
     public function home(Request $request)
     {
         if (!is_null(session('id'))) {
-            $allNotes = Note::selectRaw('`id`, `idUser`, `nameNotes` , LEFT (textNotes, 200) as textNotes ')
+            $allNotes = Note::selectRaw('`idNotes`, `idUser`, `nameNotes` , LEFT (textNotes, 200) as textNotes ')
                 ->where('idUser', '=', session('id'))
-                ->orderBy('id', 'desc')->get();
+                ->orderBy('idNotes', 'desc')->get();
         } else {
-            $allNotes = Note::where('idUser', '=', "-1")->orderBy('id', 'desc')->get();
+            $allNotes = Note::where('idUser', '=', "-1")->orderBy('idNotes', 'desc')->get();
         }
-var_dump(count($allNotes));
         for ($i = 0; $i < count($allNotes); $i++) {
-            $path = session('id') . "/" . (string)$allNotes[$i]['id'];
-            $pathScan = public_path('../public/storage/' . $allNotes[$i]['idUser'] . "/" . $allNotes[$i]['id']);
+            $path = session('id') . "/" . (string)$allNotes[$i]['idNotes'];
+            $pathScan = public_path('../public/storage/' . $allNotes[$i]['idUser'] . "/" . $allNotes[$i]['idNotes']);
             if (is_readable($pathScan)) {
                 $files = scandir($pathScan);
                 $files;
@@ -56,6 +55,14 @@ var_dump(count($allNotes));
     public function importCsv()
     {
         return view('postCsv');
+
+    }
+
+    public function logout(Request $request)
+    {
+        echo "HI";
+        $request->session()->flush();
+        return redirect()->route('home');
 
     }
 }

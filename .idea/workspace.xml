@@ -2,22 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b7b5751-0897-48f6-a057-59ec7cfcaa81" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/css/getNote.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/deleteCookie.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/NoteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/NoteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/NoteModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Note.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/UserModel.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_07_18_120801_create_user_models_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_07_18_120801_create_user_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_07_19_183512_create_notes.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_07_19_183512_create_notes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/download.csv" beforeDir="false" afterPath="$PROJECT_DIR$/public/download.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/postCsv.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/postCsv.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/addNote.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/addNote.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/addNote.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/addNote.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/editNote.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/editNote.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/addNote.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/addNote.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/editNote.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/editNote.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/getNote.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/getNote.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/headerAndFooter.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/headerAndFooter.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +29,7 @@
       <list>
         <option value="composer.json" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -229,7 +226,9 @@
       <workItem from="1627501651555" duration="226000" />
       <workItem from="1627995716057" duration="3789000" />
       <workItem from="1628014380692" duration="8721000" />
-      <workItem from="1628096295471" duration="3159000" />
+      <workItem from="1628096295471" duration="8037000" />
+      <workItem from="1628178159515" duration="211000" />
+      <workItem from="1628178437987" duration="4133000" />
     </task>
     <servers />
   </component>

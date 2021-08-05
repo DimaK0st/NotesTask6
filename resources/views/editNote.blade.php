@@ -34,8 +34,7 @@
                             <span>
                                 <!-- thumbnail image wrapped in a link -->
                                 <a href="#img{{$loop->iteration}}">
-                                    <img class="figure-delete" src="{{$image}}"
-                                         onclick="return deleteField(this,'{{$image}}')">
+                                    <img id="id-figure-delete-{{$loop->iteration}}" class="figure-delete" src="{{$image}}">
                                 </a>
                                 </span>
                         @endforeach
@@ -45,7 +44,7 @@
                     </div>
 
                     <br>
-                    <button class="add  btn-warning" onclick="return addField()">Добавить ещё картинку
+                    <button class="add  btn-warning" id="btnAddField">Добавить ещё картинку
                     </button>
 
                     <br>
