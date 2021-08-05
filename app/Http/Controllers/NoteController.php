@@ -80,7 +80,7 @@ class NoteController extends Controller
         }
         app('App\Http\Controllers\ImageController')->addNote($request, $idUser . "/" . $request->idNotes);
         $note = Note::where('idNotes', $request->idNotes)->update(['nameNotes' => $request->inputNameNote, 'textNotes' => $request->inputTextNote]);
-        return redirect('/getNote/' . $request->idNotes);
+        return redirect()->route('getNote', $request->idNotes);
     }
 
     public function getCsvFile()
@@ -180,7 +180,7 @@ class NoteController extends Controller
                 $row .= 1;
             }
         }
-        return redirect("/");
+        return redirect()->route('home');
     }
 
 
@@ -188,7 +188,7 @@ class NoteController extends Controller
     {
         Note::where('idNotes', '=', $_POST['deleteNote'])->delete();
         File::deleteDirectory(public_path() . "/storage/" . session('id') . "/" . $_POST['deleteNote']);
-        return redirect("/");
+        return redirect()->route('home');
     }
 
 

@@ -16,7 +16,7 @@ class ImageController extends Controller
                 Storage::putFileAs('public/' . $path, $file, $filename);
             }
         }
-        return redirect("/");
+        return redirect()->route('home');
     }
 
     public function editNote(Request $request, $path)
@@ -29,7 +29,7 @@ class ImageController extends Controller
                 Storage::putFileAs('public/' . $path, $file, $filename);
             }
         }
-        return redirect("/");
+        return redirect()->route('home');
     }
 
     public function getSavedImages($path)
