@@ -1,27 +1,26 @@
 @extends('headerAndFooter')
 
 @section('main_content')
-    <link rel="stylesheet" href="../css/addNote.css">
-    <link rel="stylesheet" href="../css/editNote.css">
-
+    <link rel="stylesheet" href="{{ asset('css/addNote.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/editNote.css') }}">
 
     <div class="contain">
         <div class="row">
 
             <div class="col-md-offset-3 col-md-6">
-                <form name="formsRegister" class="form-horizontal" enctype="multipart/form-data" action='/post/editNote'
+                <form name="formsRegister" class="form-horizontal" enctype="multipart/form-data" action='/note/{photo}'
                       method="post">
                     {{ csrf_field() }}
                     <input type="hidden" id="tempNoteDelete" name="tempNoteDelete" value="">
-                    <input type="hidden" id="idNotes" name="idNotes" value="{{$oneNotes['idNotes']}}">
+                    <input type="hidden" id="idNotes" name="idNotes" value="{{$oneNotes['id']}}">
                     <span class="heading">Редактирование заметки</span>
                     <div class="form-group">
                         <input type="text" class="form-control" id="inputNameNote" name="inputNameNote"
-                               placeholder="Название заметки" required value="{{$oneNotes['nameNotes']}}">
+                               placeholder="Название заметки" required value="{{$oneNotes['name']}}">
                     </div>
                     <div class="form-group">
                         <textarea class="form-text-notes inputTextNote" id="inputTextNote" name="inputTextNote"
-                                  placeholder="Содержимое заметки" required>{{$oneNotes['textNotes']}}</textarea>
+                                  placeholder="Содержимое заметки" required>{{$oneNotes['text']}}</textarea>
                     </div>
                     <div class="response-block" >
                         <span id="response" ></span></div>
@@ -60,6 +59,6 @@
     </div><!-- /.container -->
     <script src="https://cdn.tiny.cloud/1/e4gazu3y4f1sclcgct0jz905cbjsk8s508e06qcns6i872oa/tinymce/5/tinymce.min.js"
             referrerpolicy="origin"></script>
-    <script src="../js/editNote.js"></script>
+    <script src="{{ asset('js/editNote.js') }}"></script>
 
 @endsection

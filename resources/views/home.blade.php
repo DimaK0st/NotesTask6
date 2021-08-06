@@ -10,11 +10,11 @@
                 </p>
             @else
                 <p>
-                    <a href="/addNote" class="btn btn-primary my-2">Добавить заметку</a>
+                    <a href="{{route('notes.create')}}" class="btn btn-primary my-2">Добавить заметку</a>
                 </p>
                 <p>
-                    <a href="/getCsv" class="btn btn-primary my-2">Экспортировать заметки</a>
-                    <a href="/importCsv" class="btn btn-primary my-2">Импортировать заметки</a>
+                    <a href="notes/getCsv" class="btn btn-primary my-2">Экспортировать заметки</a>
+                    <a href="notes/importCsv" class="btn btn-primary my-2">Импортировать заметки</a>
                 </p>
             @endif
         </div>
@@ -41,20 +41,21 @@
                                  data-holder-rendered="true">
                             <div class="card-body">
                                 <a type="button" class="themeNote"
-                                   href="getNote/{{$oneNote['idNotes']}}">Тема: {{$oneNote['nameNotes']}} </a>
+                                   href="getNote/{{$oneNote['id']}}">Тема: {{$oneNote['name']}} </a>
                                 <br><br>
                                 <div id="block">
-                                    <p class="card-text">Содержимое: {!!$oneNote['textNotes']!!}...</p>
+                                    <p class="card-text">Содержимое: {!!$oneNote['text']!!}...</p>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <form name="formsDeleteNote" class="form-horizontal" action='/deleteNote'
+                                        <form name="formsDeleteNote" class="form-horizontal" action='/notes/{{$oneNote['id']}}'
                                               method="post">
+                                            {{ method_field('DELETE') }}
                                             {{ csrf_field() }}
-                                            <input type="hidden" id="deleteNote" name="deleteNote" value="{{$oneNote['idNotes']}}">
-                                            <a type="button" href="getNote/{{$oneNote['idNotes']}}"
+                                            <input type="hidden" id="deleteNote" name="deleteNote" value="{{$oneNote['id']}}">
+                                            <a type="button" href="/notes/{{$oneNote['id']}}"
                                                class="btn btn-sm btn-outline-secondary">View</a>
-                                            <a type="button" href="/editNote/{{$oneNote['idNotes']}}"
+                                            <a type="button" href="/notes/{{$oneNote['id']}}/edit "
                                                class="btn btn-sm btn-outline-secondary">Edit</a>
                                             <button type="submit" class="btn btn-sm btn-outline-secondary">
                                                 Delete</button>

@@ -3,43 +3,159 @@
 namespace App\Http\Controllers;
 
 use App\Models\Note;
-use App\Models\User;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
 use File;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Storage;
 
 class NoteController extends Controller
 {
-
-    public function addNote(Request $request)
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
+        if (!is_null(session('id'))) {
+            $allNotes = Note::selectRaw('`id`, `id_user`, `name` , LEFT (text, 200) as text ')
+                ->where('id_user', '=', session('id'))
+                ->orderBy('id', 'desc')->get();
+        } else {
+            $allNotes = Note::where('id_user', '=', "-1")->orderBy('id', 'desc')->get();
+        }
+        for ($i = 0; $i < count($allNotes); $i++) {
+            $path = session('id') . "/" . (string)$allNotes[$i]['id'];
+            $pathScan = public_path('../public/storage/' . $allNotes[$i]['id_user'] . "/" . $allNotes[$i]['id']);
+            if (is_readable($pathScan)) {
+                $files = scandir($pathScan);
+                $files;
+                $allNotes[$i]['path'] = asset('storage/' . $path . "/" . $files[2]);
+            } else $allNotes[$i]['path'] = "data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22208%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20208%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_17aab92a0d9%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A11pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_17aab92a0d9%22%3E%3Crect%20width%3D%22208%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2266.9453125%22%20y%3D%22117.3%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E";
+        }
+        if (is_null(session('id'))) {
+            return view('home', ['allNotes' => $allNotes, 'firstLogin' => "1"]);
+        }
+        return view('home', ['allNotes' => $allNotes]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('addNote');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+
         $idUser = session('id');
-        $user = new Note();
-        $user->idUser = $idUser;
-        $user->nameNotes = $request->inputNameNote;
-        $user->textNotes = $request->inputTextNote;
-        $user->save();
-        $idTheme = $user->idNotes;
+        $note = new Note();
+        $note->id_user = $idUser;
+        $note->name = $request->inputNameNote;
+        $note->text = $request->inputTextNote;
+        $note->save();
+        $idTheme = $note->id;
+
+        echo $idTheme;
         return app('App\Http\Controllers\ImageController')->addNote($request, $idUser . "/" . $idTheme);
 
     }
 
-
-    public function getNotes()
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
     {
-        return app('App\Http\Controllers\ImageController')->getSavedImages();
-
-    }
-
-    public function getOneNote($id)
-    {
-        $oneNotes = Note::where('idNotes', '=', $id)->orderBy('idNotes', 'desc')->first();
-        $allImage = $this->getAllImageNote($oneNotes['idUser'], $oneNotes['idNotes']);
+        $oneNotes = Note::where('id', '=', $id)->orderBy('id', 'desc')->first();
+        $allImage = $this->getAllImageNote($oneNotes['id_user'], $oneNotes['id']);
         return view('getNote', ["oneNotes" => $oneNotes, "allImage" => $allImage]);
 
     }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $oneNotes = Note::where('id', '=', $id)->first();
+        echo "<!DOCTYPE html>";
+        $allImage = $this->getAllImageNote($oneNotes['id_user'], $oneNotes['id']);
+        return view('editNote', ["oneNotes" => $oneNotes, "allImage" => $allImage]);
+
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $regexp = "/http:\/\/\w+\//";
+        $idUser = session('id');
+        $path = $request->tempNoteDelete;
+        $path = explode(",", $path);
+        foreach ($path as $onePath) {
+            if ($onePath != "") {
+                $result = str_replace("http://notestask6", "", $onePath);
+                if (is_readable(public_path($result))) {
+                    unlink(public_path($result));
+                }
+            }
+        }
+        app('App\Http\Controllers\ImageController')->addNote($request, $idUser . "/" . $request->idNotes);
+        $note = Note::where('id', $request->idNotes)->update(['name' => $request->inputNameNote, 'text' => $request->inputTextNote]);
+        return redirect()->route('getNote', $request->idNotes);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        Note::where('id', '=', $id)->delete();
+        File::deleteDirectory(public_path() . "/storage/" . session('id') . "/" . $id);
+        return redirect()->route('notes.index');
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public function getAllImageNote($idUser, $idNotes)
     {
@@ -55,33 +171,6 @@ class NoteController extends Controller
     }
 
 
-    public function editNote($id)
-    {
-        $oneNotes = Note::where('idNotes', '=', $id)->first();
-        echo "<!DOCTYPE html>";
-        $allImage = $this->getAllImageNote($oneNotes['idUser'], $oneNotes['idNotes']);
-        return view('editNote', ["oneNotes" => $oneNotes, "allImage" => $allImage]);
-    }
-
-
-    public function editPostNote(Request $request)
-    {
-        $regexp = "/http:\/\/\w+\//";
-        $idUser = session('id');
-        $path = $request->tempNoteDelete;
-        $path = explode(",", $path);
-        foreach ($path as $onePath) {
-            if ($onePath != "") {
-                $result = str_replace("http://notestask6", "", $onePath);
-                if (is_readable(public_path($result))) {
-                    unlink(public_path($result));
-                }
-            }
-        }
-        app('App\Http\Controllers\ImageController')->addNote($request, $idUser . "/" . $request->idNotes);
-        $note = Note::where('idNotes', $request->idNotes)->update(['nameNotes' => $request->inputNameNote, 'textNotes' => $request->inputTextNote]);
-        return redirect()->route('getNote', $request->idNotes);
-    }
 
     public function getCsvFile()
     {
@@ -97,20 +186,20 @@ class NoteController extends Controller
         $handle = fopen($filename, 'w');
         fputcsv($handle, [
 
-            "idNotes",
-            "idUser",
-            "nameNotes",
-            "textNotes"
+            "id",
+            "id_user",
+            "name",
+            "text"
         ], '|');
 
-        $Notes = Note::where('idUser', '=', session('id'))->get();
+        $Notes = Note::where('id_user', '=', session('id'))->get();
         foreach ($Notes as $row) {
             // Add a new row with data
             fputcsv($handle, [
                 $row->idNotes,
-                $row->idUser,
-                $row->nameNotes,
-                $row->textNotes
+                $row->id_user,
+                $row->name,
+                $row->text
             ], '|');
         }
         fclose($handle);
@@ -172,22 +261,14 @@ class NoteController extends Controller
             if ($row != 0) {
 
                 $note = new Note();
-                $note->idUser = session('id');
-                $note->nameNotes = $oneData[2];
-                $note->textNotes = $oneData[3];
+                $note->id_user = session('id');
+                $note->name = $oneData[2];
+                $note->text = $oneData[3];
                 $note->save();
             } else {
                 $row .= 1;
             }
         }
-        return redirect()->route('home');
-    }
-
-
-    public function deletePostNote(Response $response)
-    {
-        Note::where('idNotes', '=', $_POST['deleteNote'])->delete();
-        File::deleteDirectory(public_path() . "/storage/" . session('id') . "/" . $_POST['deleteNote']);
         return redirect()->route('home');
     }
 

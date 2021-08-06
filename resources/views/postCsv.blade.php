@@ -3,11 +3,11 @@
 @section('main_content')
 
 
-    <link rel="stylesheet" href="../css/addNote.css">
+    <link rel="stylesheet" href="{{ asset('css/addNote.css') }}">
     <div class="container">
         <div class="row">
             <div class="col-md-offset-3 col-md-6">
-                <form name="formsPostCsv" class="form-horizontal" enctype="multipart/form-data" action='/post/csv'
+                <form name="formsPostCsv" class="form-horizontal" enctype="multipart/form-data" action='/notes/post/csv'
                       method="post">
                     {{ csrf_field() }}
                     <span class="heading">Импорт заметок</span>
@@ -26,7 +26,7 @@
 
         </div>
     </div>
-    <script src="../js/addNote.js"></script>
+    <script src="{{ asset('js/addNote.js') }}"></script>
 
 
 @endsection

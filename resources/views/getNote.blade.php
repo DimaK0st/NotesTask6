@@ -9,10 +9,10 @@
             <div class="col-md-offset-3 col-md-6">
                 <div name="formsRegister" class="form-horizontal" >
                     {{ csrf_field() }}
-                    <span class="heading">{{$oneNotes['nameNotes']}}</span>
+                    <span class="heading">{{$oneNotes['name']}}</span>
 
                     <div class="form-group">
-                        <div class="form-text-notes" id="inputTextNote" name="inputTextNote">{!!$oneNotes['textNotes']!!}</div>
+                        <div class="form-text-notes" id="inputTextNote" name="inputTextNote">{!!$oneNotes['text']!!}</div>
                     </div>
                     <div class="response-block">
                         <span id="response" ></span></div>

@@ -8,7 +8,7 @@
         <div class="row">
 
             <div class="col-md-offset-3 col-md-6">
-                <form name="formsRegister" class="form-horizontal" enctype="multipart/form-data" action='/post/addNote'
+                <form name="formsRegister" class="form-horizontal" enctype="multipart/form-data" action='/notes'
                       method="post">
                     {{ csrf_field() }}
                     <span class="heading">Добавление новой заметки</span>

@@ -14,15 +14,12 @@ class CreateNotes extends Migration
     public function up()
     {
         Schema::create('notes', function (Blueprint $table) {
-            $table->id('idNotes');
-            $table->string('idUser');
-            $table->string('nameNotes');
-            $table->string('textNotes');
-
-            $table->foreign('idUser')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
+            $table->id();
+            $table->bigInteger('id_user')->unsigned()->index();
+            $table->string('name');
+            $table->string('text');
+            $table->timestamps();
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

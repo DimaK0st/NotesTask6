@@ -15,22 +15,23 @@ use App\Http\Controllers\UserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('notes/getCsv', [NoteController::class,'getCsvFile']);
+Route::get('notes/importCsv', [MainController::class,'importCsv']);
+Route::post('notes/post/csv', [NoteController::class,'importCsvFile']);
+Route::resource('notes', NoteController::class);
 
 Route::get('/', [MainController::class,'home'])->name('home');;
 Route::get('/post/logout', [MainController::class,'logout']);
-Route::get('/getNote/{id}', [NoteController::class,'getOneNote'])->name('getNote');
+//Route::get('/getNote/{id}', [NoteController::class,'getOneNote'])->name('getNote');
 
-Route::get('/addNote', [MainController::class,'addNote']);
-Route::post('/post/addNote', [NoteController::class,'addNote']);
+//Route::get('/addNote', [MainController::class,'addNote']);
+//Route::post('/post/addNote', [NoteController::class,'addNote']);
 
-Route::get('/editNote/{id}', [NoteController::class,'editNote']);
-Route::post('/post/editNote', [NoteController::class,'editPostNote']);
+//Route::get('/editNote/{id}', [NoteController::class,'editNote']);
+//Route::post('/post/editNote', [NoteController::class,'editPostNote']);
 
-Route::post('/deleteNote', [NoteController::class,'deletePostNote']);
+//Route::post('/deleteNote', [NoteController::class,'deletePostNote']);
 
-Route::get('/getCsv', [NoteController::class,'getCsvFile']);
-Route::get('/importCsv', [MainController::class,'importCsv']);
-Route::post('/post/csv', [NoteController::class,'importCsvFile']);
 
 
 Route::get('/register', [MainController::class,'register']);
