@@ -8,8 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Note extends Model
 {
     use HasFactory;
+    protected $guarded=[];
 
     public function user(){
-        return $this->belongsTo('App/User');
+        return $this->belongsTo('App/User', 'id_note','id');
+    }
+
+    public function images(){
+        return $this->hasMany('App/Image', 'id_image','id');
     }
 }

@@ -37,7 +37,7 @@
                         <button type="submit" class="btn btn-default">Зарегистрироваться</button>
                     </div>
                     <div class="form-group">
-                        <a onclick="window.location.href = '/auth'"
+                        <a onclick="window.location.href = '/authorization'"
                            class="btn2 btn-default btn-auth">Авторизоваться</a>
                     </div>
                 </form>

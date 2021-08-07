@@ -41,7 +41,7 @@
                                  data-holder-rendered="true">
                             <div class="card-body">
                                 <a type="button" class="themeNote"
-                                   href="getNote/{{$oneNote['id']}}">Тема: {{$oneNote['name']}} </a>
+                                   href="/notes/{{$oneNote['id']}}">Тема: {{$oneNote['name']}} </a>
                                 <br><br>
                                 <div id="block">
                                     <p class="card-text">Содержимое: {!!$oneNote['text']!!}...</p>

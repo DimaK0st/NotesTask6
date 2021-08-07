@@ -8,8 +8,9 @@
         <div class="row">
 
             <div class="col-md-offset-3 col-md-6">
-                <form name="formsRegister" class="form-horizontal" enctype="multipart/form-data" action='/note/{photo}'
+                <form name="formsRegister" class="form-horizontal" enctype="multipart/form-data" action='/notes/{{$oneNotes['id']}}'
                       method="post">
+                    {{ method_field('PUT') }}
                     {{ csrf_field() }}
                     <input type="hidden" id="tempNoteDelete" name="tempNoteDelete" value="">
                     <input type="hidden" id="idNotes" name="idNotes" value="{{$oneNotes['id']}}">

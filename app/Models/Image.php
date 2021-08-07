@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Image extends Model
 {
-
-    public $timestamps = false;
+    use HasFactory;
     protected $guarded=[];
 
-    public function notes(){
-        return $this->hasMany('App/Note','id_user', "id");
+
+    public function user(){
+        return $this->belongsTo('App/Note', 'id_note','id');
     }
 }
