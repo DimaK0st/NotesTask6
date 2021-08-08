@@ -1,4 +1,11 @@
-let countOfFields = document.getElementById('tempNoteAdd').value;
+let countOfFields
+if (!document.getElementById('tempNoteAdd')===null)
+{
+    countOfFields=document.getElementById('tempNoteAdd').value
+}
+else {
+    countOfFields=0
+}
 let curFieldNameId = 1;
 let maxFieldLimit = 5;
 tinymce.init({

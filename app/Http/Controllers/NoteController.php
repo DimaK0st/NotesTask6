@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Image;
 use App\Models\Note;
 use Illuminate\Http\Request;
 use File;
@@ -17,26 +18,12 @@ class NoteController extends Controller
      */
     public function index()
     {
-        $note = Note::find(1)->images;
-        dd($note);
-
         if (!is_null(session('id'))) {
-            $allNotes = Note::selectRaw('`id`, `id_user`, `name` , LEFT (text, 200) as text ')
-                ->where('id_user', '=', session('id'))
+            $allNotes = Note::selectRaw('`id`, `user_id`, `name` , LEFT (text, 200) as text')
+                ->where('user_id', '=', session('id'))
                 ->orderBy('id', 'desc')->get();
         } else {
-            $allNotes = Note::where('id_user', '=', "-1")->orderBy('id', 'desc')->get();
-        }
-        for ($i = 0; $i < count($allNotes); $i++) {
-            $path = session('id') . "/" . (string)$allNotes[$i]['id'];
-            $pathScan = public_path('../public/storage/' . $allNotes[$i]['id_user'] . "/" . $allNotes[$i]['id']);
-            if (is_readable($pathScan)) {
-                $files = scandir($pathScan);
-                if(isset($files[2])){
-                $allNotes[$i]['path'] = asset('storage/' . $path . "/" . $files[2]);
-                }
-                else $allNotes[$i]['path'] = "data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22208%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20208%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_17aab92a0d9%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A11pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_17aab92a0d9%22%3E%3Crect%20width%3D%22208%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2266.9453125%22%20y%3D%22117.3%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E";
-            } else $allNotes[$i]['path'] = "data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22208%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20208%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_17aab92a0d9%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A11pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_17aab92a0d9%22%3E%3Crect%20width%3D%22208%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2266.9453125%22%20y%3D%22117.3%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E";
+            $allNotes = Note::where('user_id', '=', "-1")->orderBy('id', 'desc')->get();
         }
         if (is_null(session('id'))) {
             return view('home', ['allNotes' => $allNotes, 'firstLogin' => "1"]);
@@ -57,7 +44,7 @@ class NoteController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -65,57 +52,50 @@ class NoteController extends Controller
 
         $idUser = session('id');
         $note = new Note();
-        $note->id_user = $idUser;
+        $note->user_id = $idUser;
         $note->name = $request->inputNameNote;
         $note->text = $request->inputTextNote;
         $note->save();
         $idTheme = $note->id;
-
-        echo $idTheme;
-
-        $path= $idUser . "/" . $idTheme;
-        return $this->imageNote($request, $path);
+        $path = $idUser . "/" . $idTheme;
+        return $this->imageNote($request, $path, $idTheme);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
         $oneNotes = Note::where('id', '=', $id)->orderBy('id', 'desc')->first();
-        $allImage = $this->getAllImageNote($oneNotes['id_user'], $oneNotes['id']);
-        return view('getNote', ["oneNotes" => $oneNotes, "allImage" => $allImage]);
-
+        return view('getNote', ["oneNotes" => $oneNotes]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         $oneNotes = Note::where('id', '=', $id)->first();
         echo "<!DOCTYPE html>";
-        $allImage = $this->getAllImageNote($oneNotes['id_user'], $oneNotes['id']);
-        return view('editNote', ["oneNotes" => $oneNotes, "allImage" => $allImage]);
+        return view('editNote', ["oneNotes" => $oneNotes]);
 
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $regexp = "/http:\/\/\w+\//";
         $idUser = session('id');
         $path = $request->tempNoteDelete;
         $path = explode(",", $path);
@@ -124,18 +104,20 @@ class NoteController extends Controller
                 $result = str_replace("http://notestask6", "", $onePath);
                 if (is_readable(public_path($result))) {
                     unlink(public_path($result));
+                    $result = str_replace("/storage/", "", $result);
+                    Image::where('path', $result)->delete();
                 }
             }
         }
-        $this->imageNote($request, $idUser . "/" . $request->idNotes);
-        $note = Note::where('id', $request->idNotes)->update(['name' => $request->inputNameNote, 'text' => $request->inputTextNote]);
+        $this->imageNote($request, $idUser . "/" . $request->idNotes, $id);
+        Note::where('id', $request->idNotes)->update(['name' => $request->inputNameNote, 'text' => $request->inputTextNote]);
         return redirect()->route('notes.show', $request->idNotes);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -146,48 +128,25 @@ class NoteController extends Controller
     }
 
 
-
-
-
-
-
-
-
-    public function imageNote(Request $request, $path)
-{
-
-for ($i = 1; $i < 6; $i++) {
-if ($request->isMethod('post') && $request->file('image_' . $i)) {
-$file = $request->file('image_' . $i);
-$filename = $file->getClientOriginalName(); // image.jpg
-Storage::putFileAs('public/' . $path, $file, $filename);
-}
-}
-return redirect()->route('home');
-}
-
-
-
-
-
-
-
-
-
-    public function getAllImageNote($idUser, $idNotes)
+    public function imageNote(Request $request, $path, $id)
     {
-        echo public_path();
-        $pathScan = public_path('/storage/' . $idUser . '/' . $idNotes);
-        $allImage = array();
-        if (is_readable($pathScan)) {
-            $files = scandir($pathScan);
-            for ($i = 2; $i < count($files); $i++) {
-                array_push($allImage, asset('storage/' . $idUser . '/' . $idNotes . '/' . $files[$i]));
-            }
-        } else array_push($allImage, $allNotes[0]['path'] = "data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22208%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20208%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_17aab92a0d9%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A11pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_17aab92a0d9%22%3E%3Crect%20width%3D%22208%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2266.9453125%22%20y%3D%22117.3%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E");
-        return $allImage;
-    }
 
+        for ($i = 1; $i < 6; $i++) {
+            if (($request->isMethod('put') || $request->isMethod('post')) && $request->file('image_' . $i)) {
+                $file = $request->file('image_' . $i);
+                $filename = time() . $i . '_' . $file->getClientOriginalName(); // image.jpg
+                Storage::putFileAs('public/' . $path, $file, $filename);
+
+                $note = Note::find($id);
+                $image = new Image([
+                    'note_id' => $id,
+                    'path' => $path . "/" . $filename,
+                ]);
+                $note->images()->save($image);
+            }
+        }
+        return redirect()->route('home');
+    }
 
 
     public function getCsvFile()
@@ -205,17 +164,17 @@ return redirect()->route('home');
         fputcsv($handle, [
 
             "id",
-            "id_user",
+            "user_id",
             "name",
             "text"
         ], '|');
 
-        $Notes = Note::where('id_user', '=', session('id'))->get();
+        $Notes = Note::where('user_id', '=', session('id'))->get();
         foreach ($Notes as $row) {
             // Add a new row with data
             fputcsv($handle, [
                 $row->idNotes,
-                $row->id_user,
+                $row->user_id,
                 $row->name,
                 $row->text
             ], '|');
@@ -279,7 +238,7 @@ return redirect()->route('home');
             if ($row != 0) {
 
                 $note = new Note();
-                $note->id_user = session('id');
+                $note->user_id = session('id');
                 $note->name = $oneData[2];
                 $note->text = $oneData[3];
                 $note->save();

@@ -26,7 +26,7 @@ main {
     display: block;
     font-size: 25px;
     font-weight: 700;
-    padding: 35px 0;
+    padding: 35px 5px;
     border-bottom: 1px solid #f0f0f0;
     margin-bottom: 30px;
 }
@@ -38,6 +38,7 @@ main {
 }
 
 .form-horizontal .form-control, .form-text-notes {
+    word-wrap: anywhere;
     background: #f0f0f0;
     border: none;
     border-radius: 20px;

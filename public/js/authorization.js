@@ -4,7 +4,6 @@ document.forms.formsLogin.onsubmit = function (e) {
     let login = document.forms.formsLogin.inputLogin.value;
     let password = document.forms.formsLogin.inputPassword.value;
     let _token = document.forms.formsLogin._token.value;
-    alert("login=" + login + "   " + "Password=" + password + "     " + "_token=" + _token)
     e.preventDefault();
     let objXMLHttpRequest = new XMLHttpRequest();
 
@@ -12,7 +11,6 @@ document.forms.formsLogin.onsubmit = function (e) {
         if (objXMLHttpRequest.readyState === 4) {
             if (objXMLHttpRequest.status === 200) {
                 let res = objXMLHttpRequest.responseText;
-                alert(res)
                 switch (parseInt(res)) {
                     case 1:
                         servResponse.style.color = "blue";

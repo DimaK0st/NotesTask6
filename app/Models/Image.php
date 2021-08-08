@@ -11,7 +11,7 @@ class Image extends Model
     protected $guarded=[];
 
 
-    public function user(){
-        return $this->belongsTo('App/Note', 'id_note','id');
+    public function note(){
+        return $this->belongsTo(Note::class);
     }
 }

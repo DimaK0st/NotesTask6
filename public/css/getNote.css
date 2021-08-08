@@ -1,5 +1,6 @@
 .form-text-notes {
     text-align: start;
+    word-wrap: anywhere;
 }
 
 .span-image {
@@ -9,4 +10,9 @@
 .span-image-image {
     border: 1px solid black;
     margin: 5px
+}
+
+.heading{
+    padding: 5px;
+    word-wrap: anywhere;
 }

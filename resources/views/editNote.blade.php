@@ -26,7 +26,7 @@
                     <div class="response-block" >
                         <span id="response" ></span></div>
                     <figure>
-                        @foreach($allImage as $image)
+                        @foreach($oneNotes->images as $image)
 
                             @if($loop->index==0)
                                 <input type="hidden" id="tempNoteAdd" name="tempNoteAdd" value="{{$loop->count}}">
@@ -34,7 +34,7 @@
                             <span>
                                 <!-- thumbnail image wrapped in a link -->
                                 <a href="#img{{$loop->iteration}}">
-                                    <img id="id-figure-delete-{{$loop->iteration}}" class="figure-delete" src="{{$image}}">
+                                    <img id="id-figure-delete-{{$loop->iteration}}" class="figure-delete" src="{{Request::root()."/storage/".$image['path']}}">
                                 </a>
                                 </span>
                         @endforeach

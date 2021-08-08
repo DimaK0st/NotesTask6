@@ -11,10 +11,10 @@ class Note extends Model
     protected $guarded=[];
 
     public function user(){
-        return $this->belongsTo('App/User', 'id_note','id');
+        return $this->belongsTo(User::class);
     }
 
     public function images(){
-        return $this->hasMany('App/Image', 'id_image','id');
+        return $this->hasMany(Image::class);
     }
 }

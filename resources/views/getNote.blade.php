@@ -19,16 +19,16 @@
 
                     <figure>
 
-                        @foreach($allImage as $image)
+                        @foreach($oneNotes->images as $image)
                             <span class="span-image">
                                 <!-- thumbnail image wrapped in a link -->
                                 <a href="#img{{$loop->iteration}}">
-                                    <img src="{{$image}}" width="25%" height="auto" class="span-image-image">
+                                    <img src="{{Request::root()."/storage/".$image['path']}}" width="25%" height="auto" class="span-image-image">
                                 </a>
 
                                 <!-- lightbox container hidden with CSS -->
                                 <a href="#" class="lightbox" id="img{{$loop->iteration}}">
-                                    <span style="background-image: url('{{$image}}')"></span>
+                                    <span style="background-image: url('{{Request::root()."/storage/".$image['path']}}')"></span>
                                 </a>
                             </span>
                         @endforeach
@@ -38,7 +38,6 @@
 
         </div><!-- /.row -->
     </div><!-- /.container -->
-    <script src="../js/addNote.js"></script>
 
 
 @endsection

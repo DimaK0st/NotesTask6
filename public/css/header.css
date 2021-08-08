@@ -65,8 +65,9 @@ header .logo {
 }
 
 .themeNote {
-    max-height: 50px;
+    max-height: 45px;
     overflow: hidden;
+    word-wrap: anywhere;
 }
 
 #block {

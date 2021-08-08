@@ -12,6 +12,6 @@ class User extends Model
     protected $guarded=[];
 
     public function notes(){
-        return $this->hasMany('App/Note','id_user', "id");
+        return $this->hasMany(Note::class);
     }
 }

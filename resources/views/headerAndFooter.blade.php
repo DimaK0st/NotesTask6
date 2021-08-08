@@ -57,6 +57,4 @@
     </div>
     <script src="https://use.fontawesome.com/df966d76e1.js"></script>
 </footer>
-
-    <script src="{{ asset('js/deleteCookie.js') }}"></script>
 </html>

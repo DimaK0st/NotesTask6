@@ -34,7 +34,6 @@ class MainController extends Controller
 
     public function logout(Request $request)
     {
-        echo "HI";
         $request->session()->flush();
         return redirect()->route('home');
 
