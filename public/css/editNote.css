@@ -1,6 +1,17 @@
 .form-control{
 }
 
+#btnAddField{
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+    color: #fff;
+    background: #fdc21e;
+    border-radius: 30px;
+    padding: 10px 25px;
+    border: none;
+}
+
 img{
 
     width: 25%;

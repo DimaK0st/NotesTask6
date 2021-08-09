@@ -158,29 +158,18 @@ class NoteController extends Controller
             'Expires' => '0',
             'Pragma' => 'public',
         );
-
-        $filename = "download.csv";
-        $handle = fopen($filename, 'w');
-        fputcsv($handle, [
-
-            "id",
-            "user_id",
-            "name",
-            "text"
-        ], '|');
-
+        $filename = "download.csv".rand(0,10000);
         $Notes = Note::where('user_id', '=', session('id'))->get();
+        $fp = fopen($filename, "a+");
+        fwrite($fp, "id|" . "user_id|" . "name|" . "text$"."\r\n");
+        fclose($fp);
         foreach ($Notes as $row) {
-            // Add a new row with data
-            fputcsv($handle, [
-                $row->idNotes,
-                $row->user_id,
-                $row->name,
-                $row->text
-            ], '|');
+            $fp = fopen($filename, "a+");
+            fwrite($fp, $row->id . "|" . $row->user_id . "|" . $row->name . "|" . $row->text . "$"."\r\n");
+            fclose($fp);
+
         }
-        fclose($handle);
-        return Response::download(public_path() . '/' . $filename, "download.csv", $headers);
+        return Response::download(public_path() . '/' . $filename, "download.csv", $headers)->deleteFileAfterSend(true);
     }
 
 

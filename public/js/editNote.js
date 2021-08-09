@@ -1,11 +1,12 @@
 let countOfFields
-if (!document.getElementById('tempNoteAdd')===null)
+if (!(document.getElementById('tempNoteAdd')===null))
 {
     countOfFields=document.getElementById('tempNoteAdd').value
 }
 else {
     countOfFields=0
 }
+
 let curFieldNameId = 1;
 let maxFieldLimit = 5;
 tinymce.init({
@@ -35,12 +36,10 @@ for (var i=0; i<length; i++)
 
 
 function deleteField(a, path) {
-    alert(a)
     if (path != 0) {
         document.getElementById('tempNoteDelete').value += path + ",";
     }
     contDiv = a.parentNode;
-    console.log(contDiv);
     contDiv.parentNode.removeChild(contDiv);
     countOfFields--;
     curFieldNameId--;

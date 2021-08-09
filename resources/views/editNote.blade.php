@@ -44,8 +44,9 @@
                     </div>
 
                     <br>
-                    <button class="add  btn-warning" id="btnAddField">Добавить ещё картинку
-                    </button>
+                    <a class="add" id="btnAddField">Добавить ещё картинку
+                    </a>
+                    <br>
 
                     <br>
                     <div class="form-group">

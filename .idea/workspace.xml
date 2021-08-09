@@ -2,25 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b7b5751-0897-48f6-a057-59ec7cfcaa81" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/NotesTask6.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/NotesTask6.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ImageController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/NoteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/NoteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Image.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Image.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Note.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Note.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_07_19_183512_create_notes.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_07_19_183512_create_notes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_08_07_125053_create_images_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_08_07_125053_create_images_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/addNote.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/addNote.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/editNote.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/editNote.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/getNote.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/getNote.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/download.csv" beforeDir="false" afterPath="$PROJECT_DIR$/public/download.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/editNote.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/editNote.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/editNote.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/editNote.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/getNote.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/getNote.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -246,7 +232,8 @@
       <workItem from="1628339345290" duration="2224000" />
       <workItem from="1628358489036" duration="8129000" />
       <workItem from="1628409985133" duration="3315000" />
-      <workItem from="1628417801486" duration="13224000" />
+      <workItem from="1628417801486" duration="14213000" />
+      <workItem from="1628537884837" duration="4345000" />
     </task>
     <servers />
   </component>
